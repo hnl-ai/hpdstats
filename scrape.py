@@ -53,7 +53,11 @@ def upload(url):
             open('current.pdf', 'wb').write(r.content)
             open('current.txt', 'w').write(date)
             os.system('python3 text.py')
-        bucket.put_object(Key=key, Body=r.content)
+        bucket.put_object(
+            Key=key, Body=r.content,
+            ContentType='application/pdf',
+            ACL='public-read'
+        )
 
 for link in soup.find_all('a'):
     current_link = link.get('href')
