@@ -9,6 +9,7 @@ import boto3
 from operator import itemgetter
 import cv2
 import uuid
+import sys
 
 pdf_file_location = 'pdfs/'
 image_file_location = 'imgs/'
@@ -39,10 +40,9 @@ def upload_file(path, fileid):
 def add_record(record):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('honolulupd.org-records')
-    f = open("current.txt", "r")
     response = table.put_item(
        Item={
-            'date': f.read(),
+            'date': sys.argv[1],
             **record
         }
     )
@@ -190,5 +190,5 @@ def pdf_splitter(path):
         record['imageId'] = imgFileId + '.png'
         print(record)
         add_record(record)
-path = 'current.pdf'
-pdf_splitter(path)
+
+pdf_splitter(sys.argv[1] + '.pdf')

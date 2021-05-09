@@ -17,7 +17,7 @@ url = 'https://www.honolulupd.org/information/arrest-logs/'
 
 user_agent = random.choice(user_agent_list)
 headers = {'User-Agent': user_agent}
-response = requests.get(url,headers=headers)
+response = requests.get(url, headers=headers)
 
 soup = BeautifulSoup(response.text, features="html.parser")
 
@@ -33,14 +33,6 @@ def exists(key):
     else:
         return True
 
-def is_current(date):
-    if not os.path.isfile('current.txt'):
-        return False
-    f = open('current.txt')
-    if f.read() == date:
-        return True
-    return False
-
 def upload(url):
     bucket = s3.Bucket(bucket_name)
 
@@ -49,15 +41,13 @@ def upload(url):
 
     if not exists(key):
         date = ('-'.join(key.split('-')[0:3]))
-        if not is_current(date):
-            open('current.pdf', 'wb').write(r.content)
-            open('current.txt', 'w').write(date)
-            os.system('python3 text.py')
         bucket.put_object(
             Key=key, Body=r.content,
             ContentType='application/pdf',
             ACL='public-read'
         )
+        open(date + '.pdf', 'wb').write(r.content)
+        os.system('python3 text.py ' + date)
 
 for link in soup.find_all('a'):
     current_link = link.get('href')
