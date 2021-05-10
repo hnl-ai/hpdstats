@@ -68,7 +68,13 @@ fetch('/data')
         end.setMax(maxDate);
     });
 
+function setNumRecords(num) {
+    $('#numRecords').text(`${num} arrest logs being graphed`);
+}
+
 function recount(records) {
+    setNumRecords(records.length);
+
     let totalM = totalF = 0;
     const ageMapping = {};
     const ethnicityMapping = {};
