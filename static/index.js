@@ -145,6 +145,14 @@ let censusEthnicityChart = new Chart(
     }
 );
 
+let censusSexChart = new Chart(
+    document.getElementById('censusSexChart'),
+    {
+        type: 'pie',
+        data: []
+    }
+);
+
 function initializeCharts() {
     $('#sexChart').remove();
     $('#sexBreakdown').append('<canvas id="sexChart"><canvas>');
@@ -152,6 +160,9 @@ function initializeCharts() {
     $('#ageBreakdown').append('<canvas id="ageChart"><canvas>');
     $('#ethnicityChart').remove();
     $('#ethnicityBreakdown').append('<canvas id="ethnicityChart"><canvas>');
+
+    $('#censusSexChart').remove();
+    $('#censusSexBreakdown').append('<canvas id="censusSexChart"></canvas>');
     $('#censusEthnicityChart').remove();
     $('#censusEthnicityBreakdown').append('<canvas id="censusEthnicityChart"><canvas>');
 
@@ -186,6 +197,14 @@ function initializeCharts() {
             data: []
         }
     );
+
+    censusSexChart = new Chart(
+        document.getElementById('censusSexChart'),
+        {
+            type: 'pie',
+            data: []
+        }
+    );
     
     censusEthnicityChart = new Chart(
         document.getElementById('censusEthnicityChart'),
@@ -200,6 +219,7 @@ function cleanCharts() {
     ageChart.destroy();
     sexChart.destroy();
     ethnicityChart.destroy();
+    censusSexChart.destroy();
     censusEthnicityChart.destroy();
     initializeCharts();
 }
@@ -270,10 +290,24 @@ function repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping) {
     );
     ethnicityChart.update();
 
+    censusSexChart.data.labels = ['M', 'F'];
+    censusSexChart.data.datasets.push(
+        {
+            label: 'Census Sex Dataset (2019)',
+            data: [608671, 602866],
+            backgroundColor: [
+                'rgb(54, 162, 235)',
+                'rgb(255, 99, 132)'
+            ],
+            hoverOffset: 4
+        }
+    );
+    censusSexChart.update();
+
     censusEthnicityChart.data.labels = Object.keys(ethnicityGroupings);
     censusEthnicityChart.data.datasets.push(
         {
-            label: 'Census Dataset (2019)',
+            label: 'Census Ethnicity Dataset (2019)',
             data: [25.5, 2.2, 0.4, 37.6, 10.1, 24.2],
             backgroundColor: [
                 'rgb(255, 99, 132)',
