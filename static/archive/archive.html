@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPD Arrest Records - Archive</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/table">Table</a></li>
+            <li><a href="/map">Map</a></li>
+            <li><a href="/archive">Archive</a></li>
+        </ul>
+    </div>
+    <h1>Arrest Log Archives</h1>
+    <ul id="archiveList">
+
+    </ul>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+        fetch('/archives')
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                const { archives } = data;
+                console.log(archives);
+
+                for (const archive of archives) {
+                    $('#archiveList')
+                        .append($(`<li><a href="https://honolulupd-arrest-logs.s3-us-west-1.amazonaws.com/${archive}">${archive}</a></li>`));
+                }
+
+            });
+    </script>
+
+</body>
+
+</html>

@@ -16,6 +16,10 @@ def table():
 def map():
     return current_app.send_static_file('map/map.html')
 
+@app.route('/archive')
+def archive():
+    return current_app.send_static_file('archive/archive.html')
+
 @app.route('/index.js')
 def indexjs():
     return current_app.send_static_file('index.js')
@@ -40,6 +44,22 @@ def data():
     return {
     	"allRecords": response.get('Items', [])
 	}
+
+@app.route('/archives')
+def archives():
+    from boto3 import client
+    bucket="honolulupd-arrest-logs"
+
+    conn = client   ('s3')
+    s3 = boto3.resource('s3')
+    print(conn.list_objects(Bucket=bucket)['Contents'])
+    keys = []
+    for key in conn.list_objects(Bucket=bucket)['Contents']:
+        keys.append(key['Key'])
+    return {
+        "archives": keys
+    }
+
 
 
 
