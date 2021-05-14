@@ -16,10 +16,15 @@ const end = datepicker('#endDate', {
 });
 
 function filterAndRefreshByDate() {
+    setNumDays(Math.round(Math.abs((endDate - startDate) / (24 * 60 * 60 * 1000))));
+
     const records = [];
     for (const record of gAllRecords) {
         const { date } = record;
-        if (new Date(date) >= startDate && new Date(date) <= endDate) {
+        const d = new Date(date);
+        d.setHours(0);
+
+        if (d >= startDate && d <= endDate) {
             records.push(record);
         }
     }
@@ -55,6 +60,10 @@ fetch('/data')
             }
         }
 
+        start.setMin(minDate);
+        end.setMax(maxDate);
+        setNumDays(Math.round(Math.abs((maxDate - minDate) / (24 * 60 * 60 * 1000))));
+
         const { 
             totalM,
             totalF,
@@ -63,13 +72,14 @@ fetch('/data')
         } = recount(allRecords);
 
         repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping);
-
-        start.setMin(minDate);
-        end.setMax(maxDate);
     });
 
 function setNumRecords(num) {
-    $('#numRecords').text(`${num} arrest logs being graphed`);
+    $('#numRecords').text(`${num}`);
+}
+
+function setNumDays(num) {
+    $('#numDays').text(`${num}`);
 }
 
 function recount(records) {
