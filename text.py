@@ -74,6 +74,7 @@ def handle_race_age_and_sex(text):
                     sex = item[0]
                     age = item[-3:-1]
                 ethnicities = arr[i - 1].split(',')
+                ethnicities = clean_ethnicities(ethnicities)
                 
                 return (age, sex, ethnicities)
                 
@@ -104,6 +105,37 @@ def handle_location_officer_and_court(text):
         result['courts']
     )
 
+def clean_ethnicities(ethnicities):
+    ethnicities = list(filter(None, ethnicities))
+    ethnicities = [x.strip() for x in ethnicities]
+    # Rudimentary OCR corrections
+    errors = {
+        "Filipino": ["Filipi", "Filipir"],
+        "Hawaiian": ["Hawe", "Haw:", "Hawai", "Hawaiia", "Hawaiie", "Hav"],
+        "Samoan": ["Sar", "Samoar", "Samoi", "Sarr"],
+        "Hispanic": ["Hispani"],
+        "Other": ["Othe", "Othe:", "Other Pac. Isl", "Other Pac. Isl:", "Other P"],
+        "Unknown": ["H", "C"],
+        "Indian": ["India"],
+        "Japanese": ["Japane:", "Japan", "Japai"],
+        "Native American": ["Native Americ"],
+        "Chinese": ["Chin"],
+        "Tongan":  ["Ton", "Tong"],
+        "Micronesian": ["Micr"],
+        "Laotian": ["Laotia"]
+    }
+    cleaned_ethnicities = []
+
+    for x in ethnicities:
+        inserted = False
+        for y in errors:
+            if x in errors[y]:
+                cleaned_ethnicities.append(y)
+                inserted = True
+        if not inserted:
+            cleaned_ethnicities.append(x)
+
+    return cleaned_ethnicities
 
 def pdf_splitter(path):
     fname = os.path.splitext(os.path.basename(path))[0]
