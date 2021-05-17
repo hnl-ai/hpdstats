@@ -3,7 +3,8 @@ fetch('/data')
   .then((records) => {
     const { allRecords } = records;
 
-    const data = [['Date', 'Age', 'Sex', 'Ethnicities', 'Arresting Officers', 'Locations', 'Record Image']];
+    const colHeaders = ['Date', 'Age', 'Sex', 'Ethnicities', 'Arresting Officers', 'Locations', 'Record Image'];
+    const data = [];
 
     for (const record of allRecords) {
       data.push([record.date, record.age, record.sex, record.ethnicities.join(','), record.officers.join(','), record.locations.join(','), `https://honolulupd-records.s3-us-west-1.amazonaws.com/${record.imageId}`])
@@ -14,10 +15,9 @@ fetch('/data')
     const searchField = document.getElementById('search');
 
     const hot = new Handsontable(container, {
-      data: data,
+      data,
       rowHeaders: true,
-      colHeaders: true,
-      filters: true,
+      colHeaders,
       dropdownMenu: true,
       search: true
     });
