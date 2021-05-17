@@ -18,6 +18,7 @@ fetch('/data')
       data,
       rowHeaders: true,
       colHeaders,
+      filters: true,
       dropdownMenu: true,
       search: true
     });
