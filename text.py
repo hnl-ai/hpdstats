@@ -115,7 +115,7 @@ def clean_ethnicities(ethnicities):
         "Samoan": ["Sar", "Samoar", "Samoi", "Sarr"],
         "Hispanic": ["Hispani"],
         "Other": ["Othe", "Othe:", "Other Pac. Isl", "Other Pac. Isl:", "Other P"],
-        "Unknown": ["H", "C"],
+        "Unknown": ["H", "C", "Unkr"],
         "Indian": ["India"],
         "Japanese": ["Japane:", "Japan", "Japai"],
         "Native American": ["Native Americ"],
