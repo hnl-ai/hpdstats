@@ -19,7 +19,7 @@
 
 <body>
   <div class="ui main text container">
-    <h1 class="ui header">HPD Stats</h1>
+    <h1 class="ui header">👮📊 Honolulu Police Department Stats</h1>
     <p>A project to track the statistics of the arrests of the <a href="https://www.honolulupd.org/">Honolulu Police
         Department</a></p>
   </div>
@@ -38,7 +38,7 @@
       state of crime in Hawaii. This project provides a mechanism to validate these reports, track the numbers daily,
       and keep an archive of the raw data.</p>
 
-    <p style="text-align: center;"><b>The database was updated as of <span id="dataLastUpdatedDate">...</span></b></p>
+    <p style="text-align: center;"><b>The database was last updated as of <span id="dataLastUpdatedDate">...</span></b></p>
 
     <p>This entire page can be altered by a certain timeframe using the below inputs.</p>
     <div class="ui text container raised grid">
@@ -71,7 +71,7 @@
     <br />
 
     <div class="ui raised container segment very padded">
-      <h2 class="ui header">Breakdown of Arrests by Sex</h2>
+      <h2 class="ui header dividing">A Breakdown of Arrests by Sex</h2>
       <p>According to Hawaii's reported <a href="https://census.hawaii.gov/census_2020/data/">2020 Census data</a>,
         there
         are approximately 1,455,271 people living in Hawaii.</p>
@@ -81,14 +81,14 @@
           <canvas id="censusSexChart"></canvas>
         </div>
       </div>
-      <p>Now here is a breakdown of the sexes as arrested by the Honolulu Police Department. <span
-          id="maleFemaleRatio">(~... M:... F)</span></p>
+      <p>Now here is a breakdown of the sexes as arrested by the Honolulu Police Department. <b><span
+          id="maleFemaleRatio">(~... M:... F)</span></b></p>
       <div class="ui grid">
         <div class="centered eight wide column" id="sexBreakdown">
           <canvas id="sexChart"></canvas>
         </div>
       </div>
-      <h2 class="ui header">Breakdown of Arrests by Age</h2>
+      <h2 class="ui header dividing">A Breakdown of Arrests by Age</h2>
       <p></p>
       <div class="ui grid">
         <div class="centered eight wide column" id="ageBreakdown">
@@ -96,7 +96,7 @@
         </div>
       </div>
 
-      <h2 class="ui header">Breakdown of Arrests by Ethnicity</h2>
+      <h2 class="ui header dividing">A Breakdown of Arrests by Ethnicity</h2>
       <p>Here is a breakdown of the arrests by ethnicity:</p>
       <div class="ui grid">
         <div class="centered eight wide column" id="ethnicityBreakdown">

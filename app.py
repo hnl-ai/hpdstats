@@ -52,7 +52,6 @@ def archives():
 
     conn = client   ('s3')
     s3 = boto3.resource('s3')
-    print(conn.list_objects(Bucket=bucket)['Contents'])
     keys = []
     for key in conn.list_objects(Bucket=bucket)['Contents']:
         keys.append(key['Key'])

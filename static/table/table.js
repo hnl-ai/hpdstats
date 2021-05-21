@@ -27,8 +27,8 @@ fetch('/data')
       var row, r_len;
       var array = [];
       for (row = 0, r_len = data.length; row < r_len; row++) {
-        for(col = 0, c_len = data[row].length; col < c_len; col++) {
-          if(('' + data[row][col]).toLowerCase().indexOf(search) > -1) {
+        for (col = 0, c_len = data[row].length; col < c_len; col++) {
+          if (('' + data[row][col]).toLowerCase().indexOf(search) > -1) {
             array.push(data[row]);
             break;
           }
@@ -36,9 +36,14 @@ fetch('/data')
       }
       $('#recordNum').text(array.length);
       hot.loadData(array);
-    } 
+    }
 
-    Handsontable.dom.addEvent(searchField, 'keyup', function(event) {
+    Handsontable.dom.addEvent(searchField, 'keyup', function (event) {
       filter(('' + this.value).toLowerCase());
     });
+    $('.ui.sticky')
+      .sticky({
+        context: '#content'
+      })
+      ;
   });
