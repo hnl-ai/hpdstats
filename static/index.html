@@ -5,70 +5,117 @@
   <title>HPD Arrest Records</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
   <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
+  <style>
+    body {
+      margin: 40px auto;
+      max-width: 800px;
+      line-height: 1.6;
+      font-size: 18px;
+      color: #444;
+      padding: 0 10px
+    }
+  </style>
 </head>
 
 <body>
-  <div>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/table">Table</a></li>
-      <li><a href="/map">Map</a></li>
-      <li><a href="/archive">Archive</a></li>
-    </ul>
+  <div class="ui main text container">
+    <h1 class="ui header">HPD Stats</h1>
+    <p>A project to track the statistics of the arrests of the <a href="https://www.honolulupd.org/">Honolulu Police
+        Department</a></p>
   </div>
-  <div class="ui grid centered">
-      <input type="text" id="startDate" />
-      <input type="text" id="endDate" />
+  <div class="ui main menu borderless">
+    <div class="ui text container sticky">
+      <div class="header item"><a href="/">👮📊</a></div>
+      <a href="/table" class="item">Table</a>
+      <a href="/map" class="item">Map</a>
+      <a href="/archive" class="item">Archive</a>
+    </div>
   </div>
-  <br />
-  <br />
-  <div class="ui grid centered">
-    <div class="ui statistics">
-      <div class="statistic">
-        <div id="numRecords" class="value">
-        </div>
-        <div class="label">
-          Arrest Logs Graphed
-        </div>
-      </div>
-      <div class="statistic">
-        <div id="numDays" class="value">
-        </div>
-        <div class="label">
-          Days Graphed
-        </div>
+  <div class="ui text container" id="content">
+    <p>This project provides a dashboard interface that tracks and updates from the <a
+        href="https://www.honolulupd.org/information/arrest-logs/">HPD's published daily arrest log reports</a>.</p>
+    <p>The Attorney General's Office provdes <a href="https://ag.hawaii.gov/cpja/rs/cih/">annual reports</a> as to the
+      state of crime in Hawaii. This project provides a mechanism to validate these reports, track the numbers daily,
+      and keep an archive of the raw data.</p>
+
+    <p style="text-align: center;"><b>The database was updated as of <span id="dataLastUpdatedDate">...</span></b></p>
+
+    <p>This entire page can be altered by a certain timeframe using the below inputs.</p>
+    <div class="ui text container raised grid">
+      <div class="ui two column centered grid">
+        <input type="text" id="startDate" />
+        <input type="text" id="endDate" />
       </div>
     </div>
-  </div>
-  <div class="ui grid centered">
-    <div id="sexBreakdown" class="five wide column">
-      <h1 class="ui header centered">Sexes Arrested Breakdown</h1>
-      <canvas id="sexChart"></canvas>
+
+    <br />
+    <p>Given the timeframe, there are currently:</p>
+
+    <div class="ui text container centered raised grid">
+      <div class="ui small statistics">
+        <div class="ui horizontal statistic">
+          <div id="numRecords" class="value">...</div>
+          <div class="label">
+            Arrests Being Graphed
+          </div>
+        </div>
+        <div class="ui horizontal statistic">
+          <div id="numDays" class="value">...</div>
+          <div class="label">
+            Across This Many Days
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="ageBreakdown" class="five wide column">
-      <h1 class="ui header centered">Age Arrested Breakdown</h1>
-      <canvas id="ageChart"></canvas>
-    </div>
-    <div id="ethnicityBreakdown" class="five wide column">
-      <h1 class="ui header centered">Ethnicity Arrested Breakdown</h1>
-      <canvas id="ethnicityChart"></canvas>
-    </div>
-  </div>
-  <div class="ui grid centered">
-    <div id="censusSexBreakdown" class="five wide column">
-      <h1 class="ui header centered">State of Hawaii Sex Breakdown (Census)</h1>
-      <canvas id="censusSexChart"></canvas>
-    </div>
-    <div id="censusEthnicityBreakdown" class="five wide column">
-      <h1 class="ui header centered">State of Hawaii Ethnicity Breakdown (Census)</h1>
-      <canvas id="censusEthnicityChart"></canvas>
+
+    <br />
+
+    <div class="ui raised container segment very padded">
+      <h2 class="ui header">Breakdown of Arrests by Sex</h2>
+      <p>According to Hawaii's reported <a href="https://census.hawaii.gov/census_2020/data/">2020 Census data</a>,
+        there
+        are approximately 1,455,271 people living in Hawaii.</p>
+      <p>Here is a breakdown of the population of the county of Honolulu by sex. (~102 M:100 F)</p>
+      <div class="ui grid">
+        <div class="centered eight wide column" id="censusSexBreakdown">
+          <canvas id="censusSexChart"></canvas>
+        </div>
+      </div>
+      <p>Now here is a breakdown of the sexes as arrested by the Honolulu Police Department. <span
+          id="maleFemaleRatio">(~... M:... F)</span></p>
+      <div class="ui grid">
+        <div class="centered eight wide column" id="sexBreakdown">
+          <canvas id="sexChart"></canvas>
+        </div>
+      </div>
+      <h2 class="ui header">Breakdown of Arrests by Age</h2>
+      <p></p>
+      <div class="ui grid">
+        <div class="centered eight wide column" id="ageBreakdown">
+          <canvas id="ageChart"></canvas>
+        </div>
+      </div>
+
+      <h2 class="ui header">Breakdown of Arrests by Ethnicity</h2>
+      <p>Here is a breakdown of the arrests by ethnicity:</p>
+      <div class="ui grid">
+        <div class="centered eight wide column" id="ethnicityBreakdown">
+          <canvas id="ethnicityChart"></canvas>
+        </div>
+      </div>
+      <p>Compared to their census counterparts:</p>
+      <div class="ui grid">
+        <div class="centered eight wide column" id="censusEthnicityBreakdown">
+          <canvas id="censusEthnicityChart"></canvas>
+        </div>
+      </div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
     integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-    <script src="https://unpkg.com/js-datepicker"></script>
+  <script src="https://unpkg.com/js-datepicker"></script>
   <script src="index.js"></script>
 </body>
 

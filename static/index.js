@@ -1,6 +1,13 @@
+$('.ui.sticky')
+  .sticky({
+    context: '#content',
+    pushing: true
+  })
+;
+
 let startDate, endDate;
 
-const start = datepicker('#startDate', { 
+const start = datepicker('#startDate', {
     id: 1,
     onSelect: (instance, date) => {
         startDate = date;
@@ -35,6 +42,7 @@ function filterAndRefreshByDate() {
         ethnicityMapping
     } = recount(records);
 
+    setMaleFemaleRatio(totalF, totalM);
     repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping);
 }
 
@@ -63,6 +71,7 @@ fetch('/data')
         start.setMin(minDate);
         end.setMax(maxDate);
         setNumDays(Math.round(Math.abs((maxDate - minDate) / (24 * 60 * 60 * 1000))));
+        $('#dataLastUpdatedDate').text(maxDate.toLocaleDateString("en-US"));
 
         const { 
             totalM,
@@ -71,8 +80,14 @@ fetch('/data')
             ethnicityMapping
         } = recount(allRecords);
 
+        setMaleFemaleRatio(totalF, totalM);
         repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping);
     });
+
+function setMaleFemaleRatio(totalF, totalM) {
+    const mToFRatio = totalM / totalF;
+    $('#maleFemaleRatio').text(`~${Math.floor(mToFRatio * 100)} M:100 F`);
+}
 
 function setNumRecords(num) {
     $('#numRecords').text(`${num}`);
@@ -85,7 +100,8 @@ function setNumDays(num) {
 function recount(records) {
     setNumRecords(records.length);
 
-    let totalM = totalF = 0;
+    let totalM = 0;
+    let totalF = 0;
     const ageMapping = {};
     const ethnicityMapping = {};
 
@@ -310,7 +326,7 @@ function repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping) {
     censusSexChart.data.datasets.push(
         {
             label: 'Census Sex Dataset (2019)',
-            data: [608671, 602866],
+            data: [503609, 488179],
             backgroundColor: [
                 'rgb(54, 162, 235)',
                 'rgb(255, 99, 132)'
