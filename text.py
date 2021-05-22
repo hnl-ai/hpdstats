@@ -3,13 +3,18 @@ from PyPDF2 import PdfFileReader, PdfFileWriter
 import fitz
 from PIL import Image
 import pytesseract
-import string
 import re
 import boto3
 from operator import itemgetter
 import cv2
 import uuid
 import sys
+from dotenv import dotenv_values
+import requests
+from decimal import Decimal
+import json
+
+config = dotenv_values(".env")
 
 pdf_file_location = 'pdfs/'
 image_file_location = 'imgs/'
@@ -96,6 +101,7 @@ def handle_location_officer_and_court(text):
             while(len(item) < 3):
                 item.append('')
             [location, officer, court] = item
+            location = geolocateLocation(location)
             result['locations'].append(location)
             result['officers'].append(officer)
             result['courts'].append(court)
@@ -136,6 +142,57 @@ def clean_ethnicities(ethnicities):
             cleaned_ethnicities.append(x)
 
     return cleaned_ethnicities
+
+def locationExists(location):
+    dynamodb = boto3.resource('dynamodb')
+
+    table = dynamodb.Table('honolulupd.org-locations')
+
+    try:
+        response = table.get_item(Key={'address': location})
+    except botocore.exceptions.ClientError as e:
+        return False
+    else:
+        if not 'Item' in response:
+            return False
+        return response['Item']
+
+def insertLocation(location):
+    dynamodb = boto3.resource('dynamodb')
+
+    table = dynamodb.Table('honolulupd.org-locations')
+    ddb_data = json.loads(json.dumps(location), parse_float=Decimal)
+    response = table.put_item(
+       Item={
+            **ddb_data
+        }
+    )
+
+
+def geolocateLocation(location):
+    location = location.strip()
+    retrievedLocation = locationExists(location)
+
+    if retrievedLocation == False:
+        r = requests.get('http://www.mapquestapi.com/geocoding/v1/address?key={}&location={}'.format(config['MAPQUEST_API_KEY'], location))
+        data = r.json()
+        if not data['info']['statuscode'] == 0:
+            obj = { 
+                'address': location,
+                "lat": 0,
+                "lng": 0,
+            }
+            insertLocation(obj)
+            return obj
+        obj = {
+            'address': location,
+            **data['results'][0]['locations'][0]['latLng']
+        }
+        insertLocation(obj)
+        return obj
+    else:
+        return retrievedLocation
+
 
 def pdf_splitter(path):
     fname = os.path.splitext(os.path.basename(path))[0]
@@ -184,8 +241,6 @@ def pdf_splitter(path):
             y += 40
         else:
             y += 1
-
-    records = []
     
     for i, starting_point in enumerate(starting_points):
         left = 0

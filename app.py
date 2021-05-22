@@ -51,16 +51,12 @@ def archives():
     bucket="honolulupd-arrest-logs"
 
     conn = client   ('s3')
-    s3 = boto3.resource('s3')
     keys = []
     for key in conn.list_objects(Bucket=bucket)['Contents']:
         keys.append(key['Key'])
     return {
         "archives": keys
     }
-
-
-
 
 if __name__ == "__main__":
 	app.run()

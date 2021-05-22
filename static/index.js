@@ -14,6 +14,8 @@ const start = datepicker('#startDate', {
         if (startDate && endDate) filterAndRefreshByDate();
     }
 });
+start.setDate(new Date(2021, 03, 07)); // April 7th, 2021; First Day I started collecting this information
+
 const end = datepicker('#endDate', {
     id: 1,
     onSelect: (instance, date) => {
@@ -23,7 +25,7 @@ const end = datepicker('#endDate', {
 });
 
 function filterAndRefreshByDate() {
-    setNumDays(Math.round(Math.abs((endDate - startDate) / (24 * 60 * 60 * 1000))));
+    setNumDays(Math.round(Math.abs((endDate - startDate) / (24 * 60 * 60 * 1000))) +  1);
 
     const records = [];
     for (const record of gAllRecords) {
@@ -69,7 +71,12 @@ fetch('/data')
         }
 
         start.setMin(minDate);
+        startDate = minDate;
+
         end.setMax(maxDate);
+        end.setDate(maxDate);
+        endDate = maxDate;
+
         setNumDays(Math.round(Math.abs((maxDate - minDate) / (24 * 60 * 60 * 1000))));
         $('#dataLastUpdatedDate').text(maxDate.toLocaleDateString("en-US"));
 
@@ -95,6 +102,31 @@ function setNumRecords(num) {
 
 function setNumDays(num) {
     $('#numDays').text(`${num}`);
+}
+
+function setAgeStats(ageMapping) {
+    const numbers = [];
+    for (const age in ageMapping) {
+        if (!isNaN(age)){
+            numbers.push(...new Array(ageMapping[age]).fill(Number(age)));
+        }
+    }
+
+    console.log(numbers);
+    const mode = Object.keys(ageMapping).reduce((a, b) => ageMapping[a] > ageMapping[b] ? a : b);
+    const mean = (numbers) => Math.round(numbers.reduce((acc, val) => acc + val, 0) / numbers.length);
+    let median = 0;
+    numbers.sort();
+ 
+    if (numbers.length % 2 === 0) {
+        median = (numbers[numbers.length / 2 - 1] + numbers[numbers.length / 2]) / 2;
+    } else {
+        median = numbers[(numbers.length - 1) / 2];
+    }
+    $('#ageMean').text(mean(numbers));
+    $('#ageMode').text(mode);
+    $('#ageMedian').text(median);
+
 }
 
 function recount(records) {
@@ -128,6 +160,8 @@ function recount(records) {
             }
         }
     }
+
+    setAgeStats(ageMapping);
 
     return {
         totalM,
