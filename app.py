@@ -1,5 +1,6 @@
 from flask import Flask, current_app
 import boto3
+import simplejson as json
 
 app = Flask(__name__, static_url_path='/public')
 
@@ -46,7 +47,7 @@ def data():
     table = dynamodb.Table('honolulupd.org-records')
     response = table.scan()
     return {
-    	"allRecords": response.get('Items', [])
+    	"allRecords": json.dumps(response.get('Items', []))
 	}
 
 @app.route('/archives')

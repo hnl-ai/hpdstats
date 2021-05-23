@@ -53,7 +53,8 @@ var gAllRecords;
 fetch('/data')
     .then((response) => response.json())
     .then((records) => {
-        const { allRecords } = records;
+        let { allRecords } = records;
+        allRecords = JSON.parse(allRecords);
         gAllRecords = allRecords;
 
         let minDate;
@@ -69,7 +70,6 @@ fetch('/data')
                 maxDate = new Date(date);
             }
         }
-
         start.setMin(minDate);
         startDate = minDate;
 
