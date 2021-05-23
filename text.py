@@ -119,16 +119,17 @@ def clean_ethnicities(ethnicities):
         "Filipino": ["Filipi", "Filipir"],
         "Hawaiian": ["Hawe", "Haw:", "Hawai", "Hawaiia", "Hawaiie", "Hav"],
         "Samoan": ["Sar", "Samoar", "Samoi", "Sarr"],
-        "Hispanic": ["Hispani"],
-        "Other": ["Othe", "Othe:", "Other Pac. Isl", "Other Pac. Isl:", "Other P"],
+        "Hispanic": ["Hispani", "Hispani:", "Hispanir"],
+        "Other": ["Othe", "Othe:", "Other Pac. Isl", "Other Pac. Isl:", "Other P", "Other Asian"],
         "Unknown": ["H", "C", "Unkr"],
         "Indian": ["India"],
-        "Japanese": ["Japane:", "Japan", "Japai"],
-        "Native American": ["Native Americ"],
+        "Japanese": ["Japane:", "Japan", "Japai", "Japanes"],
+        "Native American": ["Native Americ", "Native"],
         "Chinese": ["Chin"],
         "Tongan":  ["Ton", "Tong"],
         "Micronesian": ["Micr"],
-        "Laotian": ["Laotia"]
+        "Laotian": ["Laotia"],
+        "Middle Eastern": ["Middle Easter", "Middle Easter:"]
     }
     cleaned_ethnicities = []
 
