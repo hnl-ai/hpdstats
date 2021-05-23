@@ -1,7 +1,8 @@
 fetch('/data')
   .then((response) => response.json())
   .then((records) => {
-    const { allRecords } = records;
+    let { allRecords } = records;
+    allRecords = JSON.parse(allRecords);
 
     const colHeaders = ['Date', 'Age', 'Sex', 'Ethnicities', 'Arresting Officers', 'Locations', 'Record Image'];
     const data = [];

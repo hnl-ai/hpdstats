@@ -12,7 +12,8 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 fetch('/data')
 .then((response) => response.json())
 .then((records) => {
-    const { allRecords } = records;
+    let { allRecords } = records;
+    allRecords = JSON.parse(allRecords);
 
     for (const record of allRecords) {
         const location = record.locations[0];
