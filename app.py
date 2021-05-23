@@ -3,6 +3,10 @@ import boto3
 
 app = Flask(__name__, static_url_path='/public')
 
+@app.route('/favicon.ico')
+def favicon():
+    return app.send_static_file('favicon.ico')
+
 @app.route("/")
 @app.route('/index.html')
 def index():
