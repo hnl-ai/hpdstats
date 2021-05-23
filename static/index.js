@@ -322,10 +322,10 @@ function repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping) {
     const ethnicityGroupings = {
         "White": ["White"],
         "Black": ["Black"],
-        "Native American/Pacific Islander": ["Native American", "Micronesian", "Samoan", "Tongan"],
-        "Asian": ["Chinese", "Filipino", "Indian", "Japanese", "Korean", "Laotian", "Vietnamese"],
-        "Hawaiian": ["Hawaiian"],
-        "Other": ["Unknown"],
+        "Native American": ["Native American"],
+        "Asian": ["Thai", "Chinese", "Filipino", "Indian", "Japanese", "Korean", "Laotian", "Vietnamese"],
+        "Hawaiian/Pacific Islander": ["Hawaiian", "Micronesian", "Samoan", "Tongan"],
+        "Other": ["Other", "Other Asian", "Unknown", "Hispanic"],
     }
 
     const ethnicityArr = new Array(Object.keys(ethnicityGroupings).length).fill(0);
@@ -353,7 +353,15 @@ function repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping) {
             ]
         }
     );
+
+    const sum = ethnicityArr.reduce((a, b) => a + b, 0);
     ethnicityChart.update();
+
+    $('#whiteRatio').text(`${Math.round(((ethnicityArr[0] / sum) * 100))}%`);
+    $('#blackRatio').text(`${Math.round(((ethnicityArr[1] / sum) * 100))}%`);
+    $('#nativeAmericanRatio').text(`${Math.round(((ethnicityArr[2] / sum) * 100))}%`);
+    $('#asianRatio').text(`${Math.round(((ethnicityArr[3] / sum) * 100))}%`);
+    $('#hawaiianRatio').text(`${Math.round(((ethnicityArr[4] / sum) * 100))}%`);
 
     censusSexChart.data.labels = ['M', 'F'];
     censusSexChart.data.datasets.push(
