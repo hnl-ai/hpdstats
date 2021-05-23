@@ -14,19 +14,22 @@ fetch('/data')
 .then((records) => {
     const { allRecords } = records;
 
-    let i = 0;
-    for (const record of allRecords) {     
-        setTimeout(() => {
-            fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${record.locations[0]}&key=AIzaSyDZGTIy1M5PDaKpInl-jIkflfSdZ4RPm-c`)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                if (data.status === "OK") {
-                    const { lat, lng } = data.results[0].geometry.location;
-                    L.circle([lat, lng], {radius: 200}).addTo(map);
-                }
-            });
-        }, i * 100);   
-        i += 1;
+    for (const record of allRecords) {
+        const location = record.locations[0];
+        if (location) {
+            const { lat, lng } = location;
+            if (lat && lng) {
+                const circle = L.circle([lat, lng], {radius: 200}).addTo(map);
+                circle.bindPopup(`
+                    <div class="ui bulleted list">
+                        <div class="item"><b>Age:</b> ${record.age}</div>
+                        <div class="item"><b>Ethnicities:</b> ${record.ethnicities.join(', ')}</div>
+                        <div class="item"><b>Location:</b> ${record.locations[0].address}</div>
+                        <div class="item"><b>Officers:</b> ${record.officers.join(', ')}</div>
+                        <div class="item"><a href="https://honolulupd-records.s3-us-west-1.amazonaws.com/${record.imageId}"><b>View Record</b></a></div>
+                    </div>
+                `);
+            }
+        }
     }
 });

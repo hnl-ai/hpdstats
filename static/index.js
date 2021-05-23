@@ -112,7 +112,6 @@ function setAgeStats(ageMapping) {
         }
     }
 
-    console.log(numbers);
     const mode = Object.keys(ageMapping).reduce((a, b) => ageMapping[a] > ageMapping[b] ? a : b);
     const mean = (numbers) => Math.round(numbers.reduce((acc, val) => acc + val, 0) / numbers.length);
     let median = 0;

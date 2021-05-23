@@ -12,7 +12,7 @@ import sys
 from dotenv import dotenv_values
 import requests
 from decimal import Decimal
-import json
+import simplejson as json
 
 config = dotenv_values(".env")
 
@@ -188,6 +188,7 @@ def geolocateLocation(location):
             'address': location,
             **data['results'][0]['locations'][0]['latLng']
         }
+        obj = json.loads(json.dumps(obj), parse_float=Decimal)
         insertLocation(obj)
         return obj
     else:

@@ -7,7 +7,8 @@ fetch('/data')
     const data = [];
 
     for (const record of allRecords) {
-      data.push([record.date, record.age, record.sex, record.ethnicities.join(','), record.officers.join(','), record.locations.join(','), `https://honolulupd-records.s3-us-west-1.amazonaws.com/${record.imageId}`])
+      const locations = record.locations.map((e) => e.address);
+      data.push([record.date, record.age, record.sex, record.ethnicities.join(','), record.officers.join(','), locations.join(','), `https://honolulupd-records.s3-us-west-1.amazonaws.com/${record.imageId}`])
     }
     $('#recordNum').text(data.length);
 
