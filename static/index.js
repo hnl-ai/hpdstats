@@ -78,6 +78,7 @@ fetch('/data')
         endDate = maxDate;
 
         setNumDays(Math.round(Math.abs((maxDate - minDate) / (24 * 60 * 60 * 1000))));
+        maxDate.setDate(maxDate.getDate() + 1);
         $('#dataLastUpdatedDate').text(maxDate.toLocaleDateString("en-US"));
 
         const { 
