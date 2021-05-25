@@ -17,6 +17,18 @@
             padding: 0 10px
         }
     </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KP0XQZQHC5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-KP0XQZQHC5');
+    </script>
 </head>
 
 <body>
@@ -37,23 +49,24 @@
     <ul class="ui relaxed list" id="archiveList"></ul>
     <div class="ui vertical footer segment">
         <div class="ui center aligned container">
-          <div class="ui section divider"></div>
-          <p>👮📊</p>
-          <p>Inspiration: <a href="https://mappingpoliceviolence.org/">Mapping Police Violence</a></p>
-          <div class="ui horizontal small divided link list">
-            <a class="item" href="https://github.com/tyliec" target="_blank">Created by @tyliec</a>
-          </div>
+            <div class="ui section divider"></div>
+            <p>👮📊</p>
+            <p>Inspiration: <a href="https://mappingpoliceviolence.org/">Mapping Police Violence</a></p>
+            <div class="ui horizontal small divided link list">
+                <a class="item" href="https://github.com/tyliec" target="_blank">Created by @tyliec</a>
+            </div>
         </div>
-      </div>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     <script>
         fetch('/archives')
             .then((response) => response.json())
             .then((data) => {
-                const { archives } = data;
+                const {
+                    archives
+                } = data;
 
                 for (const archive of archives) {
                     $('#archiveList')
@@ -65,8 +78,7 @@
                                     <a class="header" href="https://honolulupd-arrest-logs.s3-us-west-1.amazonaws.com/${archive}">${archive}</a>
                                 </div>
                             </div>
-                        </div>`)
-                        );
+                        </div>`));
                 }
             });
     </script>
