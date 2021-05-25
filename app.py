@@ -45,7 +45,7 @@ def mapcss():
     return current_app.send_static_file('map/map.css')
 
 
-@cache.cached(timeout=28800, key_prefix='all_records') # Cache for 8 hours
+@cache.cached(timeout=3600, key_prefix='all_records') # Cache for 1 hour
 def get_all_records():
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('honolulupd.org-records')
@@ -54,22 +54,23 @@ def get_all_records():
 
 @app.route('/data')
 def data():
-    cached_records = get_all_records()
     return {
-    	"allRecords": cached_records
+    	"allRecords": get_all_records()
 	}
 
-@app.route('/archives')
-def archives():
-    from boto3 import client
+@cache.cached(timeout=3600, key_prefix='all_archives') #
+def get_all_archives():
     bucket="honolulupd-arrest-logs"
-
-    conn = client   ('s3')
+    conn = boto3.client('s3')
     keys = []
     for key in conn.list_objects(Bucket=bucket)['Contents']:
         keys.append(key['Key'])
+    return keys
+
+@app.route('/archives')
+def archives():
     return {
-        "archives": keys
+        "archives": get_all_archives()
     }
 
 if __name__ == "__main__":
