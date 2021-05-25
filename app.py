@@ -1,8 +1,11 @@
 from flask import Flask, current_app
+from flask_caching import Cache
 import boto3
 import simplejson as json
 
 app = Flask(__name__, static_url_path='/public')
+cache = Cache(config={'CACHE_TYPE': 'simple'})
+cache.init_app(app)
 
 @app.route('/favicon.ico')
 def favicon():
@@ -41,13 +44,19 @@ def mapjs():
 def mapcss():
     return current_app.send_static_file('map/map.css')
 
-@app.route('/data')
-def data():
+
+@cache.cached(timeout=28800, key_prefix='all_records') # Cache for 8 hours
+def get_all_records():
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('honolulupd.org-records')
     response = table.scan()
+    return json.dumps(response.get('Items', []))
+
+@app.route('/data')
+def data():
+    cached_records = get_all_records()
     return {
-    	"allRecords": json.dumps(response.get('Items', []))
+    	"allRecords": cached_records
 	}
 
 @app.route('/archives')
