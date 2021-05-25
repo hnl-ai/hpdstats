@@ -1,9 +1,8 @@
 $('.ui.sticky')
-  .sticky({
-    context: '#content',
-    pushing: true
-  })
-;
+    .sticky({
+        context: '#content',
+        pushing: true
+    });
 
 let startDate, endDate;
 
@@ -25,7 +24,7 @@ const end = datepicker('#endDate', {
 });
 
 function filterAndRefreshByDate() {
-    setNumDays(Math.round(Math.abs((endDate - startDate) / (24 * 60 * 60 * 1000))) +  1);
+    setNumDays(Math.round(Math.abs((endDate - startDate) / (24 * 60 * 60 * 1000))) + 1);
 
     const records = [];
     for (const record of gAllRecords) {
@@ -37,7 +36,7 @@ function filterAndRefreshByDate() {
             records.push(record);
         }
     }
-    const { 
+    const {
         totalM,
         totalF,
         ageMapping,
@@ -55,7 +54,11 @@ fetch('/data')
     .then((records) => {
         let { allRecords } = records;
         allRecords = JSON.parse(allRecords);
+
         gAllRecords = allRecords;
+
+        $('#officerRefresh').click(fillOfficerData);
+        fillOfficerData();
 
         let minDate;
         let maxDate;
@@ -81,7 +84,7 @@ fetch('/data')
         maxDate.setDate(maxDate.getDate() + 1);
         $('#dataLastUpdatedDate').text(maxDate.toLocaleDateString("en-US"));
 
-        const { 
+        const {
             totalM,
             totalF,
             ageMapping,
@@ -108,7 +111,7 @@ function setNumDays(num) {
 function setAgeStats(ageMapping) {
     const numbers = [];
     for (const age in ageMapping) {
-        if (!isNaN(age)){
+        if (!isNaN(age)) {
             numbers.push(...new Array(ageMapping[age]).fill(Number(age)));
         }
     }
@@ -117,7 +120,7 @@ function setAgeStats(ageMapping) {
     const mean = (numbers) => Math.round(numbers.reduce((acc, val) => acc + val, 0) / numbers.length);
     let median = 0;
     numbers.sort();
- 
+
     if (numbers.length % 2 === 0) {
         median = (numbers[numbers.length / 2 - 1] + numbers[numbers.length / 2]) / 2;
     } else {
@@ -172,16 +175,14 @@ function recount(records) {
 }
 
 let sexChart = new Chart(
-    document.getElementById('sexChart'),
-    {
+    document.getElementById('sexChart'), {
         type: 'pie',
         data: []
     }
 );
 
 let ageChart = new Chart(
-    document.getElementById('ageChart'),
-    {
+    document.getElementById('ageChart'), {
         type: 'scatter',
         data: [],
         options: {
@@ -196,24 +197,21 @@ let ageChart = new Chart(
 );
 
 let ethnicityChart = new Chart(
-    document.getElementById('ethnicityChart'),
-    {
+    document.getElementById('ethnicityChart'), {
         type: 'polarArea',
         data: []
     }
 );
 
 let censusEthnicityChart = new Chart(
-    document.getElementById('censusEthnicityChart'),
-    {
+    document.getElementById('censusEthnicityChart'), {
         type: 'polarArea',
         data: []
     }
 );
 
 let censusSexChart = new Chart(
-    document.getElementById('censusSexChart'),
-    {
+    document.getElementById('censusSexChart'), {
         type: 'pie',
         data: []
     }
@@ -233,16 +231,14 @@ function initializeCharts() {
     $('#censusEthnicityBreakdown').append('<canvas id="censusEthnicityChart"><canvas>');
 
     sexChart = new Chart(
-        document.getElementById('sexChart'),
-        {
+        document.getElementById('sexChart'), {
             type: 'pie',
             data: []
         }
     );
-    
+
     ageChart = new Chart(
-        document.getElementById('ageChart'),
-        {
+        document.getElementById('ageChart'), {
             type: 'scatter',
             data: [],
             options: {
@@ -255,26 +251,23 @@ function initializeCharts() {
             }
         }
     );
-    
+
     ethnicityChart = new Chart(
-        document.getElementById('ethnicityChart'),
-        {
+        document.getElementById('ethnicityChart'), {
             type: 'polarArea',
             data: []
         }
     );
 
     censusSexChart = new Chart(
-        document.getElementById('censusSexChart'),
-        {
+        document.getElementById('censusSexChart'), {
             type: 'pie',
             data: []
         }
     );
-    
+
     censusEthnicityChart = new Chart(
-        document.getElementById('censusEthnicityChart'),
-        {
+        document.getElementById('censusEthnicityChart'), {
             type: 'polarArea',
             data: []
         }
@@ -340,20 +333,18 @@ function repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping) {
     }
 
     ethnicityChart.data.labels = Object.keys(ethnicityGroupings);
-    ethnicityChart.data.datasets.push(
-        {
-            label: 'Ethniciy Dataset',
-            data: ethnicityArr,
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(75, 192, 192)',
-                'rgb(255, 205, 86)',
-                'rgb(201, 203, 207)',
-                'rgb(54, 162, 235)',
-                'rgb(50, 168, 82)'
-            ]
-        }
-    );
+    ethnicityChart.data.datasets.push({
+        label: 'Ethniciy Dataset',
+        data: ethnicityArr,
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(75, 192, 192)',
+            'rgb(255, 205, 86)',
+            'rgb(201, 203, 207)',
+            'rgb(54, 162, 235)',
+            'rgb(50, 168, 82)'
+        ]
+    });
 
     const sum = ethnicityArr.reduce((a, b) => a + b, 0);
     ethnicityChart.update();
@@ -365,33 +356,75 @@ function repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping) {
     $('#hawaiianRatio').text(`${Math.round(((ethnicityArr[4] / sum) * 100))}%`);
 
     censusSexChart.data.labels = ['M', 'F'];
-    censusSexChart.data.datasets.push(
-        {
-            label: 'Census Sex Dataset (2019)',
-            data: [503609, 488179],
-            backgroundColor: [
-                'rgb(54, 162, 235)',
-                'rgb(255, 99, 132)'
-            ],
-            hoverOffset: 4
-        }
-    );
+    censusSexChart.data.datasets.push({
+        label: 'Census Sex Dataset (2019)',
+        data: [503609, 488179],
+        backgroundColor: [
+            'rgb(54, 162, 235)',
+            'rgb(255, 99, 132)'
+        ],
+        hoverOffset: 4
+    });
     censusSexChart.update();
 
     censusEthnicityChart.data.labels = Object.keys(ethnicityGroupings);
-    censusEthnicityChart.data.datasets.push(
-        {
-            label: 'Census Ethnicity Dataset (2019)',
-            data: [25.5, 2.2, 0.4, 37.6, 10.1, 24.2],
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(75, 192, 192)',
-                'rgb(255, 205, 86)',
-                'rgb(201, 203, 207)',
-                'rgb(54, 162, 235)',
-                'rgb(50, 168, 82)'
-            ]
-        },
-    );
+    censusEthnicityChart.data.datasets.push({
+        label: 'Census Ethnicity Dataset (2019)',
+        data: [25.5, 2.2, 0.4, 37.6, 10.1, 24.2],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(75, 192, 192)',
+            'rgb(255, 205, 86)',
+            'rgb(201, 203, 207)',
+            'rgb(54, 162, 235)',
+            'rgb(50, 168, 82)'
+        ]
+    }, );
     censusEthnicityChart.update();
+}
+
+function fillOfficerData() {
+    const randRecord = gAllRecords[Math.floor(Math.random() * gAllRecords.length)];
+    const officer = randRecord.officers[0];
+
+    const matchingRecords = [];
+    const arrestedEthnicities = {
+
+    };
+    for (const record of gAllRecords) {
+        if (record.officers.includes(officer)) {
+            matchingRecords.push(record);
+
+            for (const ethnicity of record.ethnicities) {
+                if (arrestedEthnicities[ethnicity]) arrestedEthnicities[ethnicity] += 1;
+                else arrestedEthnicities[ethnicity] = 1
+            }
+        }
+    }
+
+    // https://stackoverflow.com/questions/25500316/sort-a-dictionary-by-value-in-javascript
+    const ethnicities = Object.keys(arrestedEthnicities).map(function(key) {
+        return [key, arrestedEthnicities[key]];
+    });
+    ethnicities.sort(function(first, second) {
+        return second[1] - first[1];
+    });
+
+
+    $('#officerTotalArrests').text(matchingRecords.length);
+    $('#officerList').empty();
+    for (const ethnicity of ethnicities.slice(0, 3)) { // Top 3 arrested
+        $('#officerList').append(
+            `<div class='item'>${ethnicity[1]} ${ethnicity[1] > 1 ? 'were' : 'was'} ${ethnicity[0]}</div>`
+        );
+    }
+
+}
+
+{
+    /* <div class="item">White: <b id="whiteRatio">...</b> vs. 38.6%</div>
+    <div class="item">Black or African American: <b id="blackRatio">...</b> vs. 4.3%</div>
+    <div class="item">American Indian and Alaska Native: <b id="nativeAmericanRatio">...</b> vs. 2.2%</div>
+    <div class="item">Asian: <b id="asianRatio">...</b> vs. 61.8%</div>
+    <div class="item">Native Hawaiian and Other Pacific Islander: <b id="hawaiianRatio">...</b> vs. 25.1%</div> */
 }
