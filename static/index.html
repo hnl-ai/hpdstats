@@ -33,7 +33,7 @@
     <div class="ui main text container">
         <h1 class="ui header">👮📊 Honolulu Police Department Stats</h1>
         <p>A project to track the statistics of the arrests of the <a href="https://www.honolulupd.org/">Honolulu Police
-        Department</a></p>
+                Department</a></p>
     </div>
     <div class="ui main menu borderless">
         <div class="ui text container sticky">
@@ -44,11 +44,16 @@
         </div>
     </div>
     <div class="ui text container" id="content">
-        <p>This project provides a dashboard interface that tracks and updates from the <a href="https://www.honolulupd.org/information/arrest-logs/">HPD's published daily arrest log reports</a>.</p>
-        <p>The Attorney General's Office provdes <a href="https://ag.hawaii.gov/cpja/rs/cih/">annual reports</a> as to the state of crime in Hawaii. This project provides a mechanism to validate these reports, track the numbers daily, and keep an archive
+        <p>This project provides a dashboard interface that tracks and updates from the <a
+                href="https://www.honolulupd.org/information/arrest-logs/">HPD's published daily arrest log reports</a>.
+        </p>
+        <p>The Attorney General's Office provdes <a href="https://ag.hawaii.gov/cpja/rs/cih/">annual reports</a> as to
+            the state of crime in Hawaii. This project provides a mechanism to validate these reports, track the numbers
+            daily, and keep an archive
             of the raw data.</p>
 
-        <h4 class="ui header" style="text-align: center;">The database was last updated as of <span id="dataLastUpdatedDate">...</span></h4>
+        <h4 class="ui header" style="text-align: center;">The database was last updated as of <span
+                id="dataLastUpdatedDate">...</span></h4>
 
         <p>This entire page can be altered by a certain timeframe using the below inputs.</p>
         <div class="ui text container raised grid">
@@ -82,7 +87,8 @@
 
         <div class="ui raised container segment very padded">
             <h2 class="ui header dividing">A Breakdown of Arrests by Sex</h2>
-            <p>According to Hawaii's reported <a href="https://census.hawaii.gov/census_2020/data/">2020 Census data</a>, there are approximately 1,455,271 people living in Hawaii.</p>
+            <p>According to Hawaii's reported <a href="https://census.hawaii.gov/census_2020/data/">2020 Census
+                    data</a>, there are approximately 1,455,271 people living in Hawaii.</p>
             <p>Here is a breakdown of the population of the county of Honolulu by sex. (~102 M:100 F)</p>
             <div class="ui grid">
                 <div class="centered eight wide column" id="censusSexBreakdown">
@@ -90,7 +96,7 @@
                 </div>
             </div>
             <p>Now here is a breakdown of the sexes as arrested by the Honolulu Police Department. <b><span
-            id="maleFemaleRatio">(~... M:... F)</span></b></p>
+                        id="maleFemaleRatio">(~... M:... F)</span></b></p>
             <div class="ui grid">
                 <div class="centered eight wide column" id="sexBreakdown">
                     <canvas id="sexChart"></canvas>
@@ -150,39 +156,52 @@
                 <div class="item">Black or African American: <b id="blackRatio">...</b> vs. 4.3%</div>
                 <div class="item">American Indian and Alaska Native: <b id="nativeAmericanRatio">...</b> vs. 2.2%</div>
                 <div class="item">Asian: <b id="asianRatio">...</b> vs. 61.8%</div>
-                <div class="item">Native Hawaiian and Other Pacific Islander: <b id="hawaiianRatio">...</b> vs. 25.1%</div>
+                <div class="item">Native Hawaiian and Other Pacific Islander: <b id="hawaiianRatio">...</b> vs. 25.1%
+                </div>
             </div>
 
             <h2 class="ui header dividing">The Officers</h2>
-            <p>For some further visibility, here is the anonymized breakdown of the arrest records of a random officer. You can click the below button to randomly select another one.</p>
-            <div style="display: flex; justify-content: center;">
-                <button id="officerRefresh" class="ui big primary icon basic button">
-                  <i class="sync icon"></i>
-                </button>
-            </div>
+            <p>For some further visibility, here is an anonymized breakdown of the arrest records every officer.
+                You can hover over each icon to see their related arrest informations.</p>
             <br />
-            <p>Out of their <b id="officerTotalArrests">...</b> arrests</p>
-            <!-- https://census.hawaii.gov/wp-content/uploads/2020/06/Hawaii-Population-Characteristics-2019.pdf -->
+            <p>There are <b id="totalOfficers">...</b> officers listed</p>
             <div id="officerList" class="ui bulleted list"></div>
-
+            <div id="officers" class="ui container"></div>
         </div>
     </div>
     <div class="ui vertical footer segment">
         <div class="ui center aligned container">
             <div class="ui section divider"></div>
+            <div class="ui stackable grid">
+                <div class="eight wide column">
+                    <h4 class="ui header">Inspirations</h4>
+                    <div class="ui link list">
+                        <a class="item"
+                            href="https://www.hawaiipublicradio.org/post/aclu-hpd-stop-racial-profiling-even-if-unintended"
+                            target="_blank">ACLU To HPD: Stop Racial Profiling, Even If Unintended</a>
+                        <a class="item" href="https://mappingpoliceviolence.org/" target="_blank">Mapping Police
+                            Violence</a>
+                    </div>
+                </div>
+                <div class="eight wide column">
+                    <h4 class="ui header">Resources</h4>
+                    <div class="ui link list">
+                        <a class="item" href=https://www.honolulupd.org/policy/policy-public-access-to-arrest-logs/"
+                            target="_blank">Public Access to Arrest Logs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui center aligned container">
+            <div class="ui section divider"></div>
             <p>👮📊</p>
-            <p>Inspiration #1:
-                <a href="https://www.hawaiipublicradio.org/post/aclu-hpd-stop-racial-profiling-even-if-unintended">ACLU To HPD: Stop Racial Profiling, Even If Unintended</a>
-            </p>
-            <p>Inspiration #2:
-                <a href="https://mappingpoliceviolence.org/">Mapping Police Violence</a>
-            </p>
             <div class="ui horizontal small divided link list">
                 <a class="item" href="https://github.com/tyliec" target="_blank">Created by @tyliec</a>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     <script src="https://unpkg.com/js-datepicker"></script>

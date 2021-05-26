@@ -43,6 +43,7 @@ function filterAndRefreshByDate() {
         ethnicityMapping
     } = recount(records);
 
+    fillOfficerData(records);
     setMaleFemaleRatio(totalF, totalM);
     repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping);
 }
@@ -57,8 +58,7 @@ fetch('/data')
 
         gAllRecords = allRecords;
 
-        $('#officerRefresh').click(fillOfficerData);
-        fillOfficerData();
+        fillOfficerData(allRecords);
 
         let minDate;
         let maxDate;
@@ -176,45 +176,45 @@ function recount(records) {
 
 let sexChart = new Chart(
     document.getElementById('sexChart'), {
-        type: 'pie',
-        data: []
-    }
+    type: 'pie',
+    data: []
+}
 );
 
 let ageChart = new Chart(
     document.getElementById('ageChart'), {
-        type: 'scatter',
-        data: [],
-        options: {
-            scales: {
-                x: {
-                    type: 'linear',
-                    position: 'bottom'
-                }
+    type: 'scatter',
+    data: [],
+    options: {
+        scales: {
+            x: {
+                type: 'linear',
+                position: 'bottom'
             }
         }
     }
+}
 );
 
 let ethnicityChart = new Chart(
     document.getElementById('ethnicityChart'), {
-        type: 'polarArea',
-        data: []
-    }
+    type: 'polarArea',
+    data: []
+}
 );
 
 let censusEthnicityChart = new Chart(
     document.getElementById('censusEthnicityChart'), {
-        type: 'polarArea',
-        data: []
-    }
+    type: 'polarArea',
+    data: []
+}
 );
 
 let censusSexChart = new Chart(
     document.getElementById('censusSexChart'), {
-        type: 'pie',
-        data: []
-    }
+    type: 'pie',
+    data: []
+}
 );
 
 function initializeCharts() {
@@ -232,45 +232,45 @@ function initializeCharts() {
 
     sexChart = new Chart(
         document.getElementById('sexChart'), {
-            type: 'pie',
-            data: []
-        }
+        type: 'pie',
+        data: []
+    }
     );
 
     ageChart = new Chart(
         document.getElementById('ageChart'), {
-            type: 'scatter',
-            data: [],
-            options: {
-                scales: {
-                    x: {
-                        type: 'linear',
-                        position: 'bottom'
-                    }
+        type: 'scatter',
+        data: [],
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
                 }
             }
         }
+    }
     );
 
     ethnicityChart = new Chart(
         document.getElementById('ethnicityChart'), {
-            type: 'polarArea',
-            data: []
-        }
+        type: 'polarArea',
+        data: []
+    }
     );
 
     censusSexChart = new Chart(
         document.getElementById('censusSexChart'), {
-            type: 'pie',
-            data: []
-        }
+        type: 'pie',
+        data: []
+    }
     );
 
     censusEthnicityChart = new Chart(
         document.getElementById('censusEthnicityChart'), {
-            type: 'polarArea',
-            data: []
-        }
+        type: 'polarArea',
+        data: []
+    }
     );
 }
 
@@ -379,52 +379,79 @@ function repopulateCharts(totalM, totalF, ageMapping, ethnicityMapping) {
             'rgb(54, 162, 235)',
             'rgb(50, 168, 82)'
         ]
-    }, );
+    });
     censusEthnicityChart.update();
 }
 
-function fillOfficerData() {
-    const randRecord = gAllRecords[Math.floor(Math.random() * gAllRecords.length)];
-    const officer = randRecord.officers[0];
+function fillOfficerData(records) {
+    $('#officers').empty();
+    const officers = {};
 
-    const matchingRecords = [];
-    const arrestedEthnicities = {
-
-    };
-    for (const record of gAllRecords) {
-        if (record.officers.includes(officer)) {
-            matchingRecords.push(record);
-
-            for (const ethnicity of record.ethnicities) {
-                if (arrestedEthnicities[ethnicity]) arrestedEthnicities[ethnicity] += 1;
-                else arrestedEthnicities[ethnicity] = 1
-            }
+    for (const record of records) {
+        const officer = record.officers[0];
+        if (officers[officer]) {
+            officers[officer].push(record);
+        } else {
+            officers[officer] = [record];
         }
     }
 
-    // https://stackoverflow.com/questions/25500316/sort-a-dictionary-by-value-in-javascript
-    const ethnicities = Object.keys(arrestedEthnicities).map(function(key) {
-        return [key, arrestedEthnicities[key]];
-    });
-    ethnicities.sort(function(first, second) {
-        return second[1] - first[1];
-    });
+    $('#totalOfficers').text(Object.keys(officers).length);
 
+    let i = 0;
+    for (const officer in officers) {
+        const matchingRecords = [];
+        const arrestedEthnicities = {};
+        for (const record of records) {
+            if (record.officers.includes(officer)) {
+                matchingRecords.push(record);
+    
+                for (const ethnicity of record.ethnicities) {
+                    if (arrestedEthnicities[ethnicity]) arrestedEthnicities[ethnicity] += 1;
+                    else arrestedEthnicities[ethnicity] = 1
+                }
+            }
+        }
+    
+        // https://stackoverflow.com/questions/25500316/sort-a-dictionary-by-value-in-javascript
+        const ethnicities = Object.keys(arrestedEthnicities).map(function(key) {
+            return [key, arrestedEthnicities[key]];
+        });
+        ethnicities.sort(function(first, second) {
+            return second[1] - first[1];
+        });
+    
+        const officerList = [];
+        for (const ethnicity of ethnicities.slice(0, 3)) { // Top 3 arrested
+            officerList.push(
+                `<div class='item'>${ethnicity[1]} ${ethnicity[1] > 1 ? 'were' : 'was'} ${ethnicity[0]}</div>`
+            );
+        }
 
-    $('#officerTotalArrests').text(matchingRecords.length);
-    $('#officerList').empty();
-    for (const ethnicity of ethnicities.slice(0, 3)) { // Top 3 arrested
-        $('#officerList').append(
-            `<div class='item'>${ethnicity[1]} ${ethnicity[1] > 1 ? 'were' : 'was'} ${ethnicity[0]}</div>`
-        );
+        const popup =
+            `<div id="officer-${i}-popup" class="ui flowing popup top center transition hidden">
+                <p style="text-align: center">Total Arrests: ${matchingRecords.length}</p>
+                <div class="ui one column divided center aligned grid">
+                    <div class="column">
+                        <h4 class="ui header">Top 3 Ethnicities Arrested</h4>
+                        <div class="ui bulleted list">
+                            ${officerList.join('\n')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const icon = $(`
+            <i id="officer-${i}-icon" class="circular user icon"></i>
+            ${popup}
+        `);
+        $('#officers').append(icon);
+        $(`#officer-${i}-icon`)
+            .popup({
+                inline: `officer-${i}-popup`
+            });
+
+        i += 1;
     }
-
-}
-
-{
-    /* <div class="item">White: <b id="whiteRatio">...</b> vs. 38.6%</div>
-    <div class="item">Black or African American: <b id="blackRatio">...</b> vs. 4.3%</div>
-    <div class="item">American Indian and Alaska Native: <b id="nativeAmericanRatio">...</b> vs. 2.2%</div>
-    <div class="item">Asian: <b id="asianRatio">...</b> vs. 61.8%</div>
-    <div class="item">Native Hawaiian and Other Pacific Islander: <b id="hawaiianRatio">...</b> vs. 25.1%</div> */
 }
