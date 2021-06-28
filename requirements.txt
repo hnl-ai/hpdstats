@@ -1,0 +1,11 @@
+beautifulsoup4==4.9.3
+boto3==1.16.56
+botocore==1.19.56
+opencv-python==4.5.2.52
+Pillow==8.2.0
+PyMuPDF==1.18.13
+PyPDF2==1.26.0
+pytesseract==0.3.7
+python-dotenv==0.17.1
+requests==2.25.1
+simplejson==3.17.2
