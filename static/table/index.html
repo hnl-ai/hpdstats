@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HPD Arrest Statistics - Maps</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
+    <title>HPD Arrest Statistics - Table</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css">
     <style>
         body {
             margin: 40px auto;
-            max-width: 800px;
             line-height: 1.6;
             font-size: 18px;
             color: #444;
             padding: 0 10px
+        }
+
+        #table {
+            width: 80%;
+            height: 80%;
         }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -36,12 +34,13 @@
 </head>
 
 <body>
-    <div class="ui main text container">
-        <h1 class="ui header">👮📊 Honolulu Police Department Stats</h1>
-        <p>A project to track the statistics of the arrests of the <a href="https://www.honolulupd.org/">Honolulu Police
-                Department</a></p>
-    </div>
-    <div class="ui main text container">
+    <div class="ui main text container" style="max-width: 800px;">
+        <div class="ui text container">
+            <h1 class="ui header">👮📊 Honolulu Police Department Stats</h1>
+            <p>A project to track the statistics of the arrests of the <a href="https://www.honolulupd.org/">Honolulu
+                    Police
+                    Department</a></p>
+        </div>
         <div class="ui main menu borderless">
             <div class="ui text container sticky">
                 <div class="header item"><a href="/">👮📊</a></div>
@@ -50,7 +49,26 @@
                 <a href="/archive" class="item">Archive</a>
             </div>
         </div>
-        <div id="map"></div>
+        <div class="ui grid">
+            <div class="left floated six wide column">
+                <div class="ui input">
+                    <input id="search" type="text" placeholder="Search...">
+                </div>
+            </div>
+            <div class="right floated six wide column">
+                <div class="ui horizontal statistic">
+                    <div id="recordNum" class="value">
+                        ...
+                    </div>
+                    <div class="label">
+                        Arrest Records
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div style="margin-top: 50px" id="table"></div>
     </div>
     <div class="ui vertical footer segment">
         <div class="ui center aligned container">
@@ -83,11 +101,11 @@
             </div>
         </div>
     </div>
-
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    <script src="map.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script>
+    <script src="table/table.js"></script>
 </body>
 
 </html>

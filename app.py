@@ -1,49 +1,33 @@
-from flask import Flask, current_app
+from flask import Flask, send_from_directory
 from flask_caching import Cache
 import boto3
 import simplejson as json
 
-app = Flask(__name__, static_url_path='/public')
+from os.path import join
+
+app = Flask(__name__, static_url_path='/static')
 cache = Cache(config={'CACHE_TYPE': 'simple'})
 cache.init_app(app)
 
-@app.route('/favicon.ico')
-def favicon():
-    return app.send_static_file('favicon.ico')
+@app.route("/", defaults={'path': 'index.html'})
+@app.route("/<path>")
+def index(path):
+    return send_from_directory(app.static_folder, path)
 
-@app.route("/")
-@app.route('/index.html')
-def index():
-    return current_app.send_static_file('index.html')
+@app.route("/table", defaults={'path': 'index.html'})
+@app.route("/table/<path>")
+def table(path):
+    return send_from_directory(join(app.static_folder, 'table'), path)
 
-@app.route("/table")
-def table():
-    return current_app.send_static_file('table/table.html')
+@app.route('/map', defaults={'path': 'index.html'})
+@app.route("/map/<path>")
+def map(path):
+    return send_from_directory(join(app.static_folder, 'map'), path)
 
-@app.route('/map')
-def map():
-    return current_app.send_static_file('map/map.html')
-
-@app.route('/archive')
-def archive():
-    return current_app.send_static_file('archive/archive.html')
-
-@app.route('/index.js')
-def indexjs():
-    return current_app.send_static_file('index.js')
-
-@app.route('/table.js')
-def tablejs():
-    return current_app.send_static_file('table/table.js')
-
-@app.route('/map.js')
-def mapjs():
-    return current_app.send_static_file('map/map.js')
-
-@app.route('/map.css')
-def mapcss():
-    return current_app.send_static_file('map/map.css')
-
+@app.route('/archive', defaults={'path': 'index.html'})
+@app.route("/archive/<path>")
+def archive(path):
+    return send_from_directory(join(app.static_folder, 'archive'), path)
 
 @cache.cached(timeout=3600, key_prefix='all_records') # Cache for 1 hour
 def get_all_records():
@@ -58,7 +42,7 @@ def data():
     	"allRecords": get_all_records()
 	}
 
-@cache.cached(timeout=3600, key_prefix='all_archives') #
+@cache.cached(timeout=3600, key_prefix='all_archives')
 def get_all_archives():
     bucket="honolulupd-arrest-logs"
     conn = boto3.client('s3')
