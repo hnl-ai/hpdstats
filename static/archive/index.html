@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HPD Arrest Statistics - Archive</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <style>
+    <style> 
         body {
             margin: 40px auto;
             line-height: 1.6;
@@ -46,7 +46,9 @@
         </div>
     </div>
     <h1 class="ui header">Arrest Log Archives</h1>
-    <ul class="ui relaxed list" id="archiveList"></ul>
+
+    <div class="ui accordion styled fluid" id="archiveList"></div>
+
     <div class="ui vertical footer segment">
         <div class="ui center aligned container">
             <div class="ui section divider"></div>
@@ -79,8 +81,7 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
     <script>
         fetch('/archives')
@@ -90,19 +91,44 @@
                     archives
                 } = data;
 
+                const monthYears = {}; // Month/Year pairing
+
                 for (const archive of archives) {
-                    $('#archiveList')
-                        .append($(`
-                        <div class="item">
-                            <i class="large folder middle aligned icon"></i>
-                            <div class="content">
-                                <div class="content">
-                                    <a class="header" href="https://honolulupd-arrest-logs.s3-us-west-1.amazonaws.com/${archive}">${archive}</a>
-                                </div>
-                            </div>
-                        </div>`));
+                    const date = new Date(archive.split('-').slice(0, 3));
+                    const month = date.toLocaleString('default', { month: 'long' });
+                    const year = date.getFullYear();
+                    const key = `${month}_${year}`;
+
+                    if (!monthYears[key]) {
+                        monthYears[key] = [archive];
+                    } else {
+                        monthYears[key].push(archive);
+                    }
                 }
+
+                for (const [monthYear, records] of Object.entries(monthYears)) {
+                    const [month, year] = monthYear.split('_');
+                    $('#archiveList')
+                    .append($(`
+                        <div class="title">
+                            <i class="dropdown icon"></i> ${month} ${year}
+                        </div>
+                        <div class="content">
+                        ${records.map((e) => {
+                            return `
+                                <p>
+                                    <i class="large folder middle aligned icon"></i>
+                                    <a class="header" href="https://honolulupd-arrest-logs.s3-us-west-1.amazonaws.com/${e}">${e}</a>
+
+                                </p>
+                            `;
+                        }).join('\n')}
+                        </div>
+                    `));
+                }
+                $('.ui.accordion').accordion();
             });
+
     </script>
 
 </body>
