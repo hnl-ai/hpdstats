@@ -33,8 +33,14 @@ def archive(path):
 def get_all_records():
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('honolulupd.org-records')
+
     response = table.scan()
-    return json.dumps(response.get('Items', []))
+    allRecords = response['Items']
+    while 'LastEvaluatedKey' in response:
+        response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
+        allRecords.extend(response['Items'])
+
+    return json.dumps(allRecords)
 
 @app.route('/data')
 def data():
