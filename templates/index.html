@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block title %}HPD Arrest Statistics{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="ui text container" id="content">
+    <p>This project provides a dashboard interface that tracks and updates from the <a
+            href="https://www.honolulupd.org/information/arrest-logs/">HPD's published daily arrest log reports</a>.
+    </p>
+    <p>The Attorney General's Office provdes <a href="https://ag.hawaii.gov/cpja/rs/cih/">annual reports</a> as to
+        the state of crime in Hawaii. This project provides a mechanism to validate these reports, track the numbers
+        daily, and keep an archive
+        of the raw data.</p>
+
+    <h4 class="ui header" style="text-align: center;">The database was last updated as of <span
+            id="dataLastUpdatedDate">...</span></h4>
+
+    <p>This entire page can be altered by a certain timeframe using the below inputs.</p>
+    <div class="ui text container raised grid">
+        <div class="ui two column centered grid">
+            <input type="text" id="startDate" />
+            <input type="text" id="endDate" value="..." />
+        </div>
+    </div>
+
+    <br />
+    <p>Given the timeframe, there are currently:</p>
+
+    <div class="ui text container centered raised grid">
+        <div class="ui small statistics">
+            <div class="ui horizontal statistic">
+                <div id="numRecords" class="value">...</div>
+                <div class="label">
+                    Arrests Being Graphed
+                </div>
+            </div>
+            <div class="ui horizontal statistic">
+                <div id="numDays" class="value">...</div>
+                <div class="label">
+                    Across This Many Days
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="ui raised container segment very padded">
+        <h2 class="ui header dividing">A Breakdown of Arrests by Sex</h2>
+        <p>According to Hawaii's reported <a href="https://census.hawaii.gov/census_2020/data/">2020 Census
+                data</a>, there are approximately 1,455,271 people living in Hawaii.</p>
+        <p>Here is a breakdown of the population of the county of Honolulu by sex. (~102 M:100 F)</p>
+        <div class="ui grid">
+            <div class="centered eight wide column" id="censusSexBreakdown">
+                <canvas id="censusSexChart"></canvas>
+            </div>
+        </div>
+        <p>Now here is a breakdown of the sexes as arrested by the Honolulu Police Department. <b><span
+                    id="maleFemaleRatio">(~... M:... F)</span></b></p>
+        <div class="ui grid">
+            <div class="centered eight wide column" id="sexBreakdown">
+                <canvas id="sexChart"></canvas>
+            </div>
+        </div>
+        <h2 class="ui header dividing">A Breakdown of Arrests by Age</h2>
+        <p>This scatter plot shows the arrested age range for the given timeframe.</p>
+        <div class="ui grid">
+            <div class="centered eight wide column" id="ageBreakdown">
+                <canvas id="ageChart"></canvas>
+            </div>
+        </div>
+        <div class="ui three tiny statistics">
+            <div class="statistic">
+                <div id="ageMean" class="value">
+                    ...
+                </div>
+                <div class="label">
+                    Mean (Average)
+                </div>
+            </div>
+            <div class="statistic">
+                <div id="ageMedian" class="value">
+                    ...
+                </div>
+                <div class="label">
+                    Median
+                </div>
+            </div>
+            <div class="statistic">
+                <div id="ageMode" class="value">
+                    ...
+                </div>
+                <div class="label">
+                    Mode
+                </div>
+            </div>
+        </div>
+
+        <h2 class="ui header dividing">A Breakdown of Arrests by Ethnicity</h2>
+        <p>Here is a breakdown of the arrests by ethnicity:</p>
+        <div class="ui grid">
+            <div class="centered eight wide column" id="ethnicityBreakdown">
+                <canvas id="ethnicityChart"></canvas>
+            </div>
+        </div>
+        <p>Compared to their census counterparts:</p>
+        <div class="ui grid">
+            <div class="centered eight wide column" id="censusEthnicityBreakdown">
+                <canvas id="censusEthnicityChart"></canvas>
+            </div>
+        </div>
+        <p>Here are there ethnicity ratios of the arrests versus their census counterparts:</p>
+        <!-- https://census.hawaii.gov/wp-content/uploads/2020/06/Hawaii-Population-Characteristics-2019.pdf -->
+        <div class="ui bulleted list">
+            <div class="item">White: <b id="whiteRatio">...</b> vs. 38.6%</div>
+            <div class="item">Black or African American: <b id="blackRatio">...</b> vs. 4.3%</div>
+            <div class="item">American Indian and Alaska Native: <b id="nativeAmericanRatio">...</b> vs. 2.2%</div>
+            <div class="item">Asian: <b id="asianRatio">...</b> vs. 61.8%</div>
+            <div class="item">Native Hawaiian and Other Pacific Islander: <b id="hawaiianRatio">...</b> vs. 25.1%
+            </div>
+        </div>
+
+        <h2 class="ui header dividing">The Officers</h2>
+        <p>For some further visibility, here is an anonymized breakdown of the arrest records every officer.
+            You can hover over each icon to see their related arrest informations.</p>
+        <br />
+        <p>There are <b id="totalOfficers">...</b> officers listed</p>
+        <div id="officers" class="ui container"></div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src="https://unpkg.com/js-datepicker"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+{% endblock %}

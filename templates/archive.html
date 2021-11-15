@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}HPD Arrest Statistics - Archive{% endblock %}
+
+{% block content %}
+
+<h1 class="ui header">Arrest Log Archives</h1>
+
+<div class="ui accordion styled fluid" id="archiveList"></div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ url_for('static', filename='archive/archive.js') }}"></script>
+{% endblock %}

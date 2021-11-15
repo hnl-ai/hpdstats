@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}HPD Arrest Statistics - Table{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css">
+{% endblock %}
+
+{% block styles %}
+<style>
+    #table {
+        width: 80%;
+        height: 80%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ui grid">
+    <div class="left floated six wide column">
+        <div class="ui input">
+            <input id="search" type="text" placeholder="Search...">
+        </div>
+    </div>
+    <div class="right floated six wide column">
+        <div class="ui horizontal statistic">
+            <div id="recordNum" class="value">
+                ...
+            </div>
+            <div class="label">
+                Arrest Records
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div style="margin-top: 50px" id="table"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='table/table.js') }}"></script>
+{% endblock %}
