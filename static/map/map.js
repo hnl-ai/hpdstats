@@ -47,8 +47,7 @@ function getColor(d) { // https://colorbrewer2.org/#type=sequential&scheme=Orang
 fetch('/data')
     .then((response) => response.json())
     .then((records) => {
-        let { allRecords } = records;
-        allRecords = JSON.parse(allRecords);
+        const { allRecords } = records;
 
         for (const record of allRecords) {
             const location = record.locations[0];

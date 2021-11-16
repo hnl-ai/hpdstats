@@ -1,9 +1,7 @@
 fetch('/archives')
     .then((response) => response.json())
     .then((data) => {
-        const {
-            archives
-        } = data;
+        const { archives } = data;
 
         const monthYears = {}; // Month/Year pairing
 

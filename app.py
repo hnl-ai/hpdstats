@@ -22,7 +22,7 @@ def get_all_records():
         response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
         allRecords.extend(response['Items'])
 
-    return json.dumps(allRecords)
+    return allRecords
 
 @app.route('/data')
 def data():

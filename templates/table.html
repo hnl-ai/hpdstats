@@ -3,42 +3,43 @@
 {% block title %}HPD Arrest Statistics - Table{% endblock %}
 
 {% block links %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='DataTables/datatables.min.css') }}" />
 {% endblock %}
 
 {% block styles %}
 <style>
-    #table {
-        width: 80%;
-        height: 80%;
+    #table_filter {
+        float: right;
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="ui grid">
-    <div class="left floated six wide column">
-        <div class="ui input">
-            <input id="search" type="text" placeholder="Search...">
-        </div>
-    </div>
-    <div class="right floated six wide column">
-        <div class="ui horizontal statistic">
-            <div id="recordNum" class="value">
-                ...
-            </div>
-            <div class="label">
-                Arrest Records
-            </div>
-        </div>
-    </div>
-</div>
-<div id="content">
-    <div style="margin-top: 50px" id="table"></div>
-</div>
+<table id="table" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Age</th>
+            <th>Sex</th>
+            <th>Ethnicities</th>
+            <th>Officers</th>
+            <th>Locations</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Date</th>
+            <th>Age</th>
+            <th>Sex</th>
+            <th>Ethnicities</th>
+            <th>Officers</th>
+            <th>Locations</th>
+        </tr>
+    </tfoot>
+</table>
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='DataTables/datatables.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='table/table.js') }}"></script>
 {% endblock %}

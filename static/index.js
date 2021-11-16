@@ -53,8 +53,7 @@ var gAllRecords;
 fetch('/data')
     .then((response) => response.json())
     .then((records) => {
-        let { allRecords } = records;
-        allRecords = JSON.parse(allRecords);
+        const { allRecords } = records;
 
         gAllRecords = allRecords;
 

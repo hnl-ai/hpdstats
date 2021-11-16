@@ -1,51 +1,29 @@
-fetch('/data')
-  .then((response) => response.json())
-  .then((records) => {
-    let { allRecords } = records;
-    allRecords = JSON.parse(allRecords);
-
-    const colHeaders = ['Date', 'Age', 'Sex', 'Ethnicities', 'Arresting Officers', 'Locations', 'Record Image'];
-    const data = [];
-
-    for (const record of allRecords) {
-      const locations = record.locations.map((e) => e.address);
-      data.push([record.date, record.age, record.sex, record.ethnicities.join(','), record.officers.join(','), locations.join(','), `https://honolulupd-records.s3-us-west-1.amazonaws.com/${record.imageId}`])
-    }
-    $('#recordNum').text(data.length);
-
-    const container = document.getElementById('table');
-    const searchField = document.getElementById('search');
-
-    const hot = new Handsontable(container, {
-      data,
-      rowHeaders: true,
-      colHeaders,
-      filters: true,
-      dropdownMenu: true,
-      search: true
-    });
-
-    function filter(search) {
-      var row, r_len;
-      var array = [];
-      for (row = 0, r_len = data.length; row < r_len; row++) {
-        for (col = 0, c_len = data[row].length; col < c_len; col++) {
-          if (('' + data[row][col]).toLowerCase().indexOf(search) > -1) {
-            array.push(data[row]);
-            break;
-          }
+$(document).ready(() => {
+  $('#table').DataTable({
+    'processing': true,
+    select: true,
+    'dom': 'PBfrtip',
+    'ajax': {
+      'url': '/data',
+      'dataSrc': 'allRecords'
+    },
+    'columns': [
+      { "data": "date" },
+      { "data": "age" },
+      { "data": "sex" },
+      { "data": "ethnicities" },
+      { "data": "officers" },
+      {
+        "data": (row, type, val, meta) => {
+          return row.locations.length ? row.locations[0].address : "";
         }
-      }
-      $('#recordNum').text(array.length);
-      hot.loadData(array);
-    }
-
-    Handsontable.dom.addEvent(searchField, 'keyup', function (event) {
-      filter(('' + this.value).toLowerCase());
-    });
-    $('.ui.sticky')
-      .sticky({
-        context: '#content'
-      })
-      ;
+      },
+      //TODO: link to image with imageId field?
+    ],
+    'buttons': [
+      'excel', 'colvis'
+    ],
+    'fixedHeader': true
   });
+});
+
