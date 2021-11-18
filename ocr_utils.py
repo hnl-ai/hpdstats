@@ -17,7 +17,7 @@ def correct_ethnicities(ethnicities):
         "Japanese": ["Japa", "Japane:", "Japan", "Japai", "Japanes"],
         "Native American": ["Native Americ", "Native"],
         "Chinese": ["Chin"],
-        "Tongan":  ["Ton", "Tong"],
+        "Tongan": ["Ton", "Tong"],
         "Micronesian": ["Micr"],
         "Laotian": ["Laotia"],
         "Middle Eastern": ["Middle Easter", "Middle Easter:"]
@@ -34,6 +34,7 @@ def correct_ethnicities(ethnicities):
             corrected_ethnicities.append(x)
 
     return corrected_ethnicities
+
 
 def read_text(path):
     return pytesseract.image_to_string(Image.open(path))

@@ -11,7 +11,8 @@ def split_into_pages(pdf_file_path):
         pdf_writer = PdfFileWriter()
         pdf_writer.addPage(pdf_file.getPage(pageNum))
 
-        output_filename = '{}/{}_page_{}.pdf'.format(pdf_directory_location, pdf_file_path.split('/')[1][0:-4], pageNum + 1)
+        output_filename = '{}/{}_page_{}.pdf'.format(
+            pdf_directory_location, pdf_file_path.split('/')[1][0:-4], pageNum + 1)
 
         with open(output_filename, 'wb') as out:
             print('Created: {}'.format(output_filename))

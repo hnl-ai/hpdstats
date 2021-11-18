@@ -12,10 +12,12 @@ locations_table_name = 'honolulupd.org-locations'
 
 def geolocate_location(location):
     location = location.strip()
-    retrieved_location = check_if_item_exists(locations_table_name, {'address': location})
+    retrieved_location = check_if_item_exists(
+        locations_table_name, {'address': location})
 
     if not retrieved_location:
-        url = 'http://www.mapquestapi.com/geocoding/v1/address?key={}&location={}'.format(config['MAPQUEST_API_KEY'], location)
+        url = 'http://www.mapquestapi.com/geocoding/v1/address?key={}&location={}'.format(
+            config['MAPQUEST_API_KEY'], location)
         r = requests.get(url)
         data = r.json()
 

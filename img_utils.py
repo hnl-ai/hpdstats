@@ -7,7 +7,9 @@ from PIL import Image
 image_directory_location = 'imgs'
 
 
-def concat_images(images):  # Vertically concatenates all the records into one long vertical record: "concat.png"
+# Vertically concatenates all the records into one long vertical record:
+# "concat.png"
+def concat_images(images):
     vertical_images = cv2.vconcat(images)
     output_filename = '{}/concat.png'.format(image_directory_location)
     cv2.imwrite(output_filename, vertical_images)
@@ -20,7 +22,9 @@ def convert_pdf_to_png(pdf_file_path):
     page = doc.loadPage(0)
     pix = page.getPixmap(matrix=mat)
 
-    output_filename = '{}/{}.png'.format(image_directory_location, os.path.basename(pdf_file_path))
+    output_filename = '{}/{}.png'.format(
+        image_directory_location,
+        os.path.basename(pdf_file_path))
     pix.writePNG(output_filename)
     return output_filename
 
@@ -38,7 +42,8 @@ def retrieve_image_dimensions(img):
     return width, height
 
 
-def retrieve_record_starting_points(img):  # Finds all the records' starting points by looking for pixels on each line
+# Finds all the records' starting points by looking for pixels on each line
+def retrieve_record_starting_points(img):
     image = Image.open(img)
     width, height = image.size
 
