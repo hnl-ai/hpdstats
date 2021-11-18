@@ -44,7 +44,7 @@ function getColor(d) { // https://colorbrewer2.org/#type=sequential&scheme=Orang
         '#a63603';
 }
 
-fetch('/data')
+fetch('/api/records')
     .then((response) => response.json())
     .then((records) => {
         const { allRecords } = records;

@@ -41,8 +41,10 @@ def main():
             left, top, right, bottom = 0, starting_point - 5, width, height
             if i + 1 != len(record_starting_points):
                 bottom = record_starting_points[i + 1] - 5
-            cropped_record_filename = '{}/record_{}.png'.format(image_directory_location, str(i))
-            crop_image(concat_image, cropped_record_filename, (left, top, right, bottom))
+            cropped_record_filename = '{}/record_{}.png'.format(
+                image_directory_location, str(i))
+            crop_image(concat_image, cropped_record_filename,
+                       (left, top, right, bottom))
 
             categories = get_record_categories()
             record = {}
@@ -51,10 +53,18 @@ def main():
             for category in categories:
                 top, bottom = 0, height
                 left, right = get_dimensions_from_category(category, width)
-                cropped_category_filename = '{}/record_{}_{}.png'.format(image_directory_location, str(i), category)
-                crop_image(cropped_record_filename, cropped_category_filename, (left, top, right, bottom))
+                cropped_category_filename = '{}/record_{}_{}.png'.format(
+                    image_directory_location, str(i), category)
+                crop_image(
+                    cropped_record_filename,
+                    cropped_category_filename,
+                    (left,
+                     top,
+                     right,
+                     bottom))
                 category_text = read_text(cropped_category_filename)
-                record = handle_text_assignment(category, category_text, record)
+                record = handle_text_assignment(
+                    category, category_text, record)
 
             img_file_id = str(uuid.uuid4())
             img_filename = '{}.png'.format(img_file_id)

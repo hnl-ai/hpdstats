@@ -1,4 +1,4 @@
-fetch('/archives')
+fetch('/api/archives')
     .then((response) => response.json())
     .then((data) => {
         const { archives } = data;

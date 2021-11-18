@@ -49,4 +49,3 @@ def check_for_update():  # Returns a list of local references to new PDF files
                 output_filename = save_pdf(pdf_link, key)
                 new_pdf_files.append(output_filename)
     return new_pdf_files
-

@@ -10,7 +10,8 @@ def get_record_categories():
     return categories
 
 
-def get_dimensions_from_category(category, width):  # Returns (left, right) dimensions
+# Returns (left, right) dimensions
+def get_dimensions_from_category(category, width):
     if category == 'race_age_and_sex':
         return 130, width - 1313
     elif category == 'location_officer_and_court':
@@ -20,7 +21,8 @@ def get_dimensions_from_category(category, width):  # Returns (left, right) dime
 def handle_race_age_and_sex(text):
     race_age_and_sex_output = [text.split('\n')]
     for arr in race_age_and_sex_output:
-        arr = [re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\xff]', '', x) for x in arr]
+        arr = [re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\xff]', '', x)
+               for x in arr]
         arr = [x for x in arr if x]
         for i, item in enumerate(arr):
             if i % 2 == 1:
@@ -43,7 +45,8 @@ def handle_location_officer_and_court(text):
         'courts': []
     }
     for arr in location_officer_and_court_output:
-        arr = [re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\xff]', '', x) for x in arr]
+        arr = [re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\xff]', '', x)
+               for x in arr]
         for i, item in enumerate(arr):
             item = item.split('\n')
             item = [x for x in item if x]
