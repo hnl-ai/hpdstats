@@ -50,7 +50,7 @@ function filterAndRefreshByDate() {
 
 var gAllRecords;
 
-fetch('/data')
+fetch('/api/records')
     .then((response) => response.json())
     .then((records) => {
         const { allRecords } = records;

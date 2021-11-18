@@ -4,7 +4,7 @@ $(document).ready(() => {
     select: true,
     'dom': 'PBfrtip',
     'ajax': {
-      'url': '/data',
+      'url': '/api/records',
       'dataSrc': 'allRecords'
     },
     'columns': [
