@@ -1,12 +1,14 @@
+# -*- coding: utf-8 -*-
+"""The optical character recognition utility module."""
+
 import pytesseract
 from PIL import Image
 
-
 def correct_ethnicities(ethnicities):
+    """Corrects a list of OCR misread ethnicities into their proper category."""
     ethnicities = list(filter(None, ethnicities))
     ethnicities = [x.strip() for x in ethnicities]
-    # Rudimentary OCR corrections
-    errors = {
+    corrections = {
         "Filipino": ["Filipi", "Filipir"],
         "Hawaiian": ["Hawe", "Haw:", "Hawai", "Hawaiia", "Hawaiie", "Hav"],
         "Samoan": ["Sar", "Samoar", "Samoi", "Sarr"],
@@ -24,17 +26,17 @@ def correct_ethnicities(ethnicities):
     }
     corrected_ethnicities = []
 
-    for x in ethnicities:
+    for ethnicity in ethnicities:
         inserted = False
-        for y in errors:
-            if x in errors[y]:
-                corrected_ethnicities.append(y)
+        for correction, wrongs in corrections.items():
+            if ethnicity in wrongs:
+                corrected_ethnicities.append(correction)
                 inserted = True
         if not inserted:
-            corrected_ethnicities.append(x)
+            corrected_ethnicities.append(ethnicity)
 
     return corrected_ethnicities
 
-
 def read_text(path):
+    """Reads the text of the given image."""
     return pytesseract.image_to_string(Image.open(path))
