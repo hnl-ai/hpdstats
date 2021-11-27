@@ -15,7 +15,7 @@
 This project provides a dashboard interface that tracks and updates from the [HPD's published daily arrest log reports](https://www.honolulupd.org/information/arrest-logs/).
 
 ### Why this exists:
-The Attorney General's Office provdes [annual reports](https://ag.hawaii.gov/cpja/rs/cih/) as to the state of crime in Hawaii. This project provides a mechanism to validate these reports, track the numbers daily, and keep an archive of the raw data.
+The Attorney General's Office provides [annual reports](https://ag.hawaii.gov/cpja/rs/cih/) as to the state of crime in Hawaii. This project provides a mechanism to validate these reports, track the numbers daily, and keep an archive of the raw data.
 
 ### Project Screenshots
 
@@ -45,7 +45,7 @@ Using a combination of image cropping and OCR, we extract data about each arrest
 
 ### Full Breakdown
 
-Everyday (with `cron`!), the script is run (`python3 main.py`) to scrape and parse the newly published arrest log. It then does the following:
+Everyday (with `cron`!), the script is run (`cd scrape && python3 main.py`) to scrape and parse the newly published arrest log. It then does the following:
 
 1. Uploads the PDF file to AWS S3 [for archiving](https://hpdstats.com/archive)
 2. Downloads the PDF file locally for parsing purposes

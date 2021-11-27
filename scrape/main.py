@@ -4,23 +4,23 @@
 import uuid
 import cv2
 
-from .utils.ddb import insert_item
-from .utils.imgs import (
+from utils.ddb import insert_item
+from utils.imgs import (
     concat_images,
     crop_image,
     convert_pdf_to_png,
     retrieve_image_dimensions,
     retrieve_record_starting_points
 )
-from .utils.ocr import read_text
-from .utils.pdfs import split_into_pages
-from .utils.parse import (
+from utils.ocr import read_text
+from utils.pdfs import split_into_pages
+from utils.parse import (
     get_record_categories,
     get_dimensions_from_category,
     handle_text_assignment
 )
-from .utils.s3 import upload_file
-from .utils.scrape import check_for_update
+from utils.s3 import upload_file
+from utils.scrape import check_for_update
 
 IMAGE_DIRECTORY = 'imgs'
 RECORDS_BUCKET_NAME = 'honolulupd-records'
@@ -93,5 +93,6 @@ def retrieve_files():
         return []
     return pdf_files
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main(retrieve_files())
+
