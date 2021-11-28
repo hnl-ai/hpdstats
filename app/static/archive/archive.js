@@ -19,7 +19,7 @@ fetch('/api/archives')
             }
         }
 
-        for (const [monthYear, records] of Object.entries(monthYears)) {
+        for (const [monthYear, records] of Object.entries(monthYears).reverse()) {
             const [month, year] = monthYear.split('_');
             $('#archiveList')
                 .append($(`
