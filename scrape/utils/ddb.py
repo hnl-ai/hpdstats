@@ -4,6 +4,7 @@
 import boto3
 import botocore
 
+
 def check_if_item_exists(table_name, key):
     """Checks if the given key exists in a table."""
     dynamodb = boto3.resource('dynamodb')
@@ -18,6 +19,7 @@ def check_if_item_exists(table_name, key):
         if 'Item' not in response:
             return False
         return response['Item']
+
 
 def insert_item(table_name, item):
     """Inserts the given item into in a table."""

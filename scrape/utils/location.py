@@ -12,6 +12,7 @@ from .ddb import check_if_item_exists, insert_item
 config = dotenv_values('.env')
 LOCATIONS_TABLE = 'honolulupd.org-locations'
 
+
 def geolocate_location(location):
     """Geolocates the given address into lat/lng coordinates."""
     location = location.strip()
