@@ -58,13 +58,14 @@ fetch('/api/records')
                         radius: 200,
                         color: getColor(differenceInDays(new Date(record.date), new Date()))
                     });
+
                     circle.addTo(map);
                     circle.bindPopup(`
                     <div class="ui bulleted list">
                         <div class="item"><b>Age:</b> ${record.age}</div>
                         <div class="item"><b>Ethnicities:</b> ${record.ethnicities.join(', ')}</div>
                         <div class="item"><b>Location:</b> ${record.locations[0].address}</div>
-                        <div class="item"><b>Officers:</b> ${record.officers.join(', ')}</div>
+                        <div class="item"><b>Officers:</b> ${record.arrest_officer.join(', ')}</div>
                         <div class="item"><a href="https://honolulupd-records.s3-us-west-1.amazonaws.com/${record.imageId}"><b>View Record</b></a></div>
                     </div>
                 `);

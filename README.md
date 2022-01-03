@@ -61,4 +61,4 @@ After we download the file, we prepare it for image cropping and OCR. To do this
   - [Example Record - Ethnicities Category](docs/example_record_ethnicities.png)
 6. Use OCR([PyTesseract](https://pypi.org/project/pytesseract/)) to parse the text
 
-We then upload the data to AWS DynamoDB. Using Flask and DynamoDB's boto3 module, data is served to the [HPDStats website](https://hpdstats.com/).
+We then upload the data to AWS DynamoDB. Using Flask and DynamoDB's boto3 module, data is served to the [HPDStats website](https://hpdstats.com/). An example of the artifacts generated from the script can be viewed here: [Example Artifacts](https://honolulupd-artifacts.s3.us-west-1.amazonaws.com/2022-01-01.zip)

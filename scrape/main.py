@@ -125,11 +125,11 @@ def main(pdf_files):
                 left, top, right, bottom = 0, offense_starting_point - 5, width, height
                 if j + 1 != len(offenses_starting_points):
                     bottom = offenses_starting_points[j + 1] - 5
-                cropped_record_filename = \
+                cropped_offense_filename = \
                     f'{constants.PDF_TMP_DIRECTORY}/record_{str(i + 1)}_offense_{str(j + 1)}.png'
                 offenses.append(crop_image(
                     record_image_path,
-                    cropped_record_filename,
+                    cropped_offense_filename,
                     (left, top, right, bottom)
                 ))
 
@@ -169,7 +169,7 @@ def main(pdf_files):
 
             img_file_id = str(uuid.uuid4())
             img_filename = f'{img_file_id}.png'
-            with open(cropped_record_filename, 'rb') as file:
+            with open(record_image_path, 'rb') as file:
                 upload_file(
                     constants.RECORDS_BUCKET_NAME,
                     img_filename,
@@ -186,7 +186,7 @@ def main(pdf_files):
         with open(manifest_file_path, 'a', encoding='utf-8') as manifest_file:
             manifest_file.write(f'# of offenses: {total_offenses_count}\n')
 
-        output_zip_file = f"{pdf_directory_registry['root']}/{pdf_file.split('/')[1][0:-4]}"
+        output_zip_file = f"{constants.PDF_TMP_DIRECTORY}/{pdf_file.split('/')[1][0:-4]}"
         zip_directory(output_zip_file, pdf_directory_registry['root'])
         with open(output_zip_file + '.zip', 'rb') as file:
             upload_file(constants.ARTIFACTS_BUCKET_NAME, pdf_file.split(
@@ -194,13 +194,17 @@ def main(pdf_files):
 
 
 def retrieve_files():
-    """Wrapper around the check for new PDF files."""
-    pdf_files = check_for_update()
-    if len(pdf_files) == 0:
-        print('No new PDF files to parse')
-        return []
-    return pdf_files
+    # """Wrapper around the check for new PDF files."""
+    # pdf_files = check_for_update()
+    # if len(pdf_files) == 0:
+    #     print('No new PDF files to parse')
+    #     return []
+    # return pdf_files
+    from os import listdir
+    from os.path import isfile, join
+    onlyfiles = ['pdfs/' + f for f in listdir('pdfs/') if isfile(join('pdfs/', f)) and f.endswith('pdf')]
 
+    return sorted(onlyfiles)
 
 if __name__ == '__main__':
     main(retrieve_files())
