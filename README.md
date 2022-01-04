@@ -52,10 +52,13 @@ Everyday (with `cron`!), the script is run (`cd scrape && python3 main.py`) to s
 
 After we download the file, we prepare it for image cropping and OCR. To do this, we
 
-1. Convert all the PDF file's pages into images ([Example Page](docs/2021-04-08_page_1.png))
-2. Vertically concat all the page images into one long image, cropping the top and the bottom out so we only contain arrest records ([Example Image](docs/concat.png))
-3. Crop each individual arrest record using the location of pixels ([Example Image](docs/record_10.png))
-4. Crop each portion of the arrest record by the categories we want to parse ([Example Image - Race, Age, and Sex](docs/record_10_race_age_and_sex.png))
-5. Use OCR([PyTesseract](https://pypi.org/project/pytesseract/)) to parse the text
+1. Split the PDF into individual pages ([Example Page PDF](docs/example_page.pdf))
+2. Convert all the PDF file's pages into images ([Example Page Image](docs/example_page.png))
+3. Vertically concat all the page images into one long image, cropping the top and the bottom out so we only contain arrest records ([Example Vertically Concatted Image](docs/example_vconcat.png))
+4. Crop each individual arrest record using the location of pixels ([Example Record Image](docs/example_record.png))
+5. Crop each portion of the arrest record by the categories we want to parse:
+  - [Example Record - Age Category](docs/example_record_age.png)
+  - [Example Record - Ethnicities Category](docs/example_record_ethnicities.png)
+6. Use OCR([PyTesseract](https://pypi.org/project/pytesseract/)) to parse the text
 
-We then upload the data to AWS DynamoDB. Using Flask and DynamoDB's boto3 module, data is served to the [HPDStats website](https://hpdstats.com/).
+We then upload the data to AWS DynamoDB. Using Flask and DynamoDB's boto3 module, data is served to the [HPDStats website](https://hpdstats.com/). An example of the artifacts generated from the script can be viewed here: [Example Artifacts](https://honolulupd-artifacts.s3.us-west-1.amazonaws.com/2022-01-01.zip)

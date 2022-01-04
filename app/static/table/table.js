@@ -12,7 +12,7 @@ $(document).ready(() => {
       { "data": "age" },
       { "data": "sex" },
       { "data": "ethnicities" },
-      { "data": "officers" },
+      { "data": "arrest_officer" },
       {
         "data": (row, type, val, meta) => {
           return row.locations.length ? row.locations[0].address : "";

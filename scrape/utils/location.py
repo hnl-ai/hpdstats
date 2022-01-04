@@ -12,9 +12,14 @@ from .ddb import check_if_item_exists, insert_item
 config = dotenv_values('.env')
 LOCATIONS_TABLE = 'honolulupd.org-locations'
 
+
 def geolocate_location(location):
     """Geolocates the given address into lat/lng coordinates."""
     location = location.strip()
+
+    if not location:
+        return {}
+
     retrieved_location = check_if_item_exists(
         LOCATIONS_TABLE, {'address': location})
 
@@ -38,6 +43,13 @@ def geolocate_location(location):
             }
             insert_item(LOCATIONS_TABLE, obj)
             return obj
+        
+        if not data['results']:
+            return {}
+        
+        if not data['results'][0]['locations']:
+            return {}
+
         obj = {
             'address': location,
             **data['results'][0]['locations'][0]['latLng']

@@ -4,6 +4,7 @@
 import boto3
 import botocore
 
+
 def check_if_key_exists(bucket_name, key):
     """Checks if the given key exists in an s3 bucket."""
     s3_resource = boto3.resource('s3')
@@ -13,6 +14,7 @@ def check_if_key_exists(bucket_name, key):
         if error.response['Error']['Code'] == "404":
             return False
     return True
+
 
 def upload_file(bucket_name, key, file, content_type):
     """Uploads the given file into in an s3 bucket."""

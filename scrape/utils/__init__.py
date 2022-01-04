@@ -7,3 +7,4 @@ from .parse import *
 from .pdfs import *
 from .s3 import *
 from .scrape import *
+from .files import *

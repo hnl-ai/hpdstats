@@ -387,7 +387,7 @@ function fillOfficerData(records) {
     const officers = {};
 
     for (const record of records) {
-        const officer = record.officers[0];
+        const officer = record.arrest_officer[0];
         if (officers[officer]) {
             officers[officer].push(record);
         } else {
@@ -402,7 +402,7 @@ function fillOfficerData(records) {
         const matchingRecords = [];
         const arrestedEthnicities = {};
         for (const record of records) {
-            if (record.officers.includes(officer)) {
+            if (record.arrest_officer.includes(officer)) {
                 matchingRecords.push(record);
     
                 for (const ethnicity of record.ethnicities) {
