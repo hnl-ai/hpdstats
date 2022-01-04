@@ -14,9 +14,10 @@ def correct_ethnicities(ethnicities):
     corrections = {
         "Filipino": ["Filipi", "Filipir", "Filig", "Filip", "Filipit"],
         "Hawaiian": ["Hawe", "Haw:", "Hawai", "Hawaiia", "Hawaiie", "Hav"],
-        "Samoan": ["Sam", "Samc", "Samo:", "Sar", "Samoar", "Samoi", "Sarr"],
-        "Hispanic": ["Hispani", "Hispani:", "Hispanir"],
-        "Other": ["Othe", "Othe:", "Other Pac. Isl",
+        "Samoan": ["Sam", "Samc", "Samo:", "San", "Sarn",
+            "Sar", "Samoar", "Samoi", "Sarr"],
+        "Hispanic": ["Hispani", "Hispani:", "Hispanir", "Hispaniv"],
+        "Other": ["Othe", "Othe:", "Other Pac. Isl", "Othe!",
             "Other Pac. Isl:", "Other P", "Other A", "Other Asian"],
         "Unknown": ["H", "C", "Unkr"],
         "Indian": ["India", "Indiai"],

@@ -164,7 +164,8 @@ def main(pdf_files):
             # Geolocate the locations
             locations = []
             for location in record_data['location_of_arrest']:
-                locations.append(geolocate_location(location))
+                geolocated_location = geolocate_location(location)
+                locations.append(geolocated_location)
             record_data['locations'] = locations
 
             img_file_id = str(uuid.uuid4())
@@ -194,17 +195,12 @@ def main(pdf_files):
 
 
 def retrieve_files():
-    # """Wrapper around the check for new PDF files."""
-    # pdf_files = check_for_update()
-    # if len(pdf_files) == 0:
-    #     print('No new PDF files to parse')
-    #     return []
-    # return pdf_files
-    from os import listdir
-    from os.path import isfile, join
-    onlyfiles = ['pdfs/' + f for f in listdir('pdfs/') if isfile(join('pdfs/', f)) and f.endswith('pdf')]
-
-    return sorted(onlyfiles)
+    """Wrapper around the check for new PDF files."""
+    pdf_files = check_for_update()
+    if len(pdf_files) == 0:
+        print('No new PDF files to parse')
+        return []
+    return pdf_files
 
 if __name__ == '__main__':
     main(retrieve_files())

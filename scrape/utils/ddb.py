@@ -10,6 +10,9 @@ def check_if_item_exists(table_name, key):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(table_name)
 
+    if not key:
+        return False
+
     try:
         response = table.get_item(Key=key)
     except botocore.exceptions.ClientError as error:
