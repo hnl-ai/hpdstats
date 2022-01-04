@@ -15,7 +15,7 @@ $(document).ready(() => {
       { "data": "arrest_officer" },
       {
         "data": (row, type, val, meta) => {
-          return row.locations.length ? row.locations[0].address : "";
+          return row.locations.length && row.locations[0].address ? row.locations[0].address : "";
         }
       },
       //TODO: link to image with imageId field?
