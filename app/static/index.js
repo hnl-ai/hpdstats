@@ -140,7 +140,7 @@ function recount(records) {
     const ethnicityMapping = {};
 
     for (const record of records) {
-        const { age, courts, date, ethnicities, id, imageId, locations, officers, sex } = record;
+        const { age, ethnicities, sex } = record;
 
         if (sex === 'M') {
             totalM += 1;
@@ -395,9 +395,8 @@ function fillOfficerData(records) {
         }
     }
 
-    $('#totalOfficers').text(Object.keys(officers).length);
+    const colorsOfTopArrested = [];
 
-    let i = 0;
     for (const officer in officers) {
         const matchingRecords = [];
         const arrestedEthnicities = {};
@@ -419,38 +418,40 @@ function fillOfficerData(records) {
         ethnicities.sort(function(first, second) {
             return second[1] - first[1];
         });
-    
-        const officerList = [];
-        for (const ethnicity of ethnicities.slice(0, 3)) { // Top 3 arrested
-            officerList.push(
-                `<div class='item'>${ethnicity[1]} ${ethnicity[1] > 1 ? 'were' : 'was'} ${ethnicity[0]}</div>`
-            );
+
+        if (!ethnicities) continue;
+        if (!ethnicities[0]) continue;
+
+        const topArrestedEthnicity = ethnicities[0][0];
+
+        const ethnicityColorMapping = {
+            "olive": ["White"],
+            // "black": ["Black"], // TODO: Figure out a better color scheme
+            "brown": ["Native American", "Hawaiian", "Micronesian", "Samoan", "Tongan", "Hispanic"],
+            "yellow": ["Thai", "Chinese", "Filipino", "Indian", "Japanese", "Korean", "Laotian", "Vietnamese", "Other Asian"],
+            "black": ["Other", "Unknown"],
         }
 
-        const popup =
-            `<div id="officer-${i}-popup" class="ui flowing popup top center transition hidden">
-                <p style="text-align: center">Total Arrests: ${matchingRecords.length}</p>
-                <div class="ui one column divided center aligned grid">
-                    <div class="column">
-                        <h4 class="ui header">Top 3 Ethnicities Arrested</h4>
-                        <div class="ui bulleted list">
-                            ${officerList.join('\n')}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+        let colorOfTopArrest = 'black';
 
+        for (const color in ethnicityColorMapping) {
+            if (ethnicityColorMapping[color].includes(topArrestedEthnicity)) {
+                colorOfTopArrest = color;
+                break;
+            }
+        }
+
+        colorsOfTopArrested.push(colorOfTopArrest);
+    }
+
+    $('#totalOfficers').text(colorsOfTopArrested.length);
+    colorsOfTopArrested.sort();
+    
+    for (const colorOfTopArrest of colorsOfTopArrested) {
+        console.log(colorOfTopArrest);
         const icon = $(`
-            <i id="officer-${i}-icon" class="circular user icon"></i>
-            ${popup}
+            <i class="circular user icon ${colorOfTopArrest}"></i>
         `);
         $('#officers').append(icon);
-        $(`#officer-${i}-icon`)
-            .popup({
-                inline: `officer-${i}-popup`
-            });
-
-        i += 1;
     }
 }
