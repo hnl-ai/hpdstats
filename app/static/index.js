@@ -448,7 +448,6 @@ function fillOfficerData(records) {
     colorsOfTopArrested.sort();
     
     for (const colorOfTopArrest of colorsOfTopArrested) {
-        console.log(colorOfTopArrest);
         const icon = $(`
             <i class="circular user icon ${colorOfTopArrest}"></i>
         `);
