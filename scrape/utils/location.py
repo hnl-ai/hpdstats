@@ -27,7 +27,7 @@ def geolocate_location(location):
         url = 'http://www.mapquestapi.com/geocoding/v1/address?'
         query_variables = {
             'key': config['MAPQUEST_API_KEY'],
-            'location': location
+            'location': location + ', Honolulu, HI' # https://developer.mapquest.com/documentation/common/forming-locations/
         }
 
         url += urllib.parse.urlencode(query_variables)
