@@ -6,6 +6,7 @@ import urllib.parse
 from dotenv import dotenv_values
 import requests
 import simplejson as json
+from shapely.geometry import Point, box
 
 from .ddb import check_if_item_exists, insert_item
 
@@ -23,39 +24,47 @@ def geolocate_location(location):
     retrieved_location = check_if_item_exists(
         LOCATIONS_TABLE, {'address': location})
 
-    if not retrieved_location:
-        url = 'http://www.mapquestapi.com/geocoding/v1/address?'
-        query_variables = {
-            'key': config['MAPQUEST_API_KEY'],
-            'location': location + ', Honolulu, HI', # https://developer.mapquest.com/documentation/common/forming-locations/
-            'boundingBox': ','.join(map(str, [-158.404958, 21.746884, 21.150598, -157.524172]))
-        }
+    if retrieved_location:
+        return retrieved_location
 
-        url += urllib.parse.urlencode(query_variables)
+    oahuBoxPoints = [-158.404958, 21.746884, 21.150598, -157.524172] # Oahu Upper Left, Bottom Right (Lng, Lat)
 
-        response = requests.get(url)
-        data = response.json()
+    url = 'http://www.mapquestapi.com/geocoding/v1/address?'
+    query_variables = {
+        'key': config['MAPQUEST_API_KEY'],
+        'location': location + ', Honolulu, HI', # https://developer.mapquest.com/documentation/common/forming-locations/
+        'boundingBox': ','.join(map(str, oahuBoxPoints))
+    }
 
-        if not data['info']['statuscode'] == 0:  # Error retrieving location
-            obj = {
-                'address': location,
-                "lat": 0,
-                "lng": 0,
-            }
-            insert_item(LOCATIONS_TABLE, obj)
-            return obj
-        
-        if not data['results']:
-            return {}
-        
-        if not data['results'][0]['locations']:
-            return {}
+    url += urllib.parse.urlencode(query_variables)
 
-        obj = {
-            'address': location,
-            **data['results'][0]['locations'][0]['latLng']
-        }
-        obj = json.loads(json.dumps(obj), parse_float=Decimal)
+    response = requests.get(url)
+    data = response.json()
+
+    obj = {
+        'address': location,
+        "lat": 0,
+        "lng": 0,
+    }
+
+    if not data['info']['statuscode'] == 0:  # Error retrieving location
         insert_item(LOCATIONS_TABLE, obj)
         return obj
-    return retrieved_location
+    
+    if not data['results'] or not data['results'][0]['locations']:
+        insert_item(LOCATIONS_TABLE, obj)
+        return obj
+
+    newLat = data['results'][0]['locations'][0]['latLng']['lat']
+    newLng = data['results'][0]['locations'][0]['latLng']['lng']
+
+    geolocatedPoint = Point(newLat, newLng)
+    oahuBox = box(oahuBoxPoints)
+
+    if oahuBox.contains(geolocatedPoint):
+        obj['lat'] = newLat
+        obj['lng'] = newLng
+
+    obj = json.loads(json.dumps(obj), parse_float=Decimal)
+    insert_item(LOCATIONS_TABLE, obj)
+    return obj
