@@ -59,7 +59,7 @@ def geolocate_location(location):
     newLng = data['results'][0]['locations'][0]['latLng']['lng']
 
     geolocatedPoint = Point(newLat, newLng)
-    oahuBox = box(oahuBoxPoints)
+    oahuBox = box(*oahuBoxPoints)
 
     if oahuBox.contains(geolocatedPoint):
         obj['lat'] = newLat
