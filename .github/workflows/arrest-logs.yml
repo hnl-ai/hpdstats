@@ -1,0 +1,42 @@
+name: Pull and Archive Arrest Log PDFs
+
+on:
+  push: {}
+  workflow_dispatch: {}
+  schedule:
+    - cron:  '0 10 * * *'
+
+env:
+  BASE_URL: https://www.honolulupd.org/information/arrest-logs
+
+jobs:
+  Pull-Arrest-Log-PDFs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pulling Arrest Logs
+        run: |
+          pdfs=$(curl https://www.honolulupd.org/information/arrest-logs | 
+            grep -Eo '(http|https)://[a-zA-Z0-9#~.*,/!?=+&_%:-]*' |
+            grep -E '.*.pdf'
+          )
+          for pdf in $pdfs; do
+            wget $pdf
+          done
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: arrest-logs
+          path: '*.pdf'
+      - name: Get current date
+        run: echo "NOW=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+      - name: Move PDFs
+        run:
+          mv *.pdf archive/
+      - name: Commit to repo
+        run: |
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add archive/
+          git commit -m "Daily arrest logs ${{ env.NOW }}"
+          git push
