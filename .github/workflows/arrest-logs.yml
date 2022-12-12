@@ -1,7 +1,6 @@
 name: Pull and Archive Arrest Log PDFs
 
 on:
-  push: {}
   workflow_dispatch: {}
   schedule:
     - cron:  '0 10 * * *'
