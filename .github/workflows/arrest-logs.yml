@@ -2,8 +2,8 @@ name: Pull and Archive Arrest Log PDFs
 
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron:  '0 10 * * *'
+  # schedule: # Uncomment this to run on a schedule due to large file sizes
+  #   - cron:  '0 10 * * *'
 
 env:
   BASE_URL: https://www.honolulupd.org/information/arrest-logs
