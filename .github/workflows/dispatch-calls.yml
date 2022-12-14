@@ -27,11 +27,10 @@ jobs:
         working-directory: active-police-dispatch-calls
       - name: Commit to repo
         run: |
-          git diff --quiet
-          RC=$?
-          if [ $RC -eq 0 ]; then
-            echo "No changes to commit"
-            exit 0
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "there are changes to commit";
+          else
+            exit 0;
           fi
 
           git config --local user.email "github-actions@github.com"
