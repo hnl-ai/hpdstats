@@ -36,6 +36,10 @@ last_updated_date = datetime.strptime(last_updated, "%B %d, %Y %H:%M:%S %p").iso
 
 output_file_name = 'archive/' + last_updated_date + '.txt'
 
+if (os.path.isfile(output_file_name)): # If we already have a file for this date, don't proceed
+    print(f"File already exists for {last_updated_date} date. Exiting.")
+    exit(0)
+
 oReport = soup.find('td', { 'id': 'oReportCell' })
 
 rows = oReport.findAll('tr', {"valign" : "top"})
