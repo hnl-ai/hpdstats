@@ -1,5 +1,40 @@
 {
-    "incidentCount": {},
-    "cityCount": {},
-    "districtCount": {}
+  "incidentCount": {
+    "SUSP CIRCUMSTANCE": 1,
+    "TRAFFIC STOP": 1,
+    "SIMPLE ASSAULT": 1,
+    "ARGUMENT FAMILY": 1,
+    "DUI": 1,
+    "MISC SERVICE CALL": 1,
+    "TRAFFIC COMPLAINT": 2,
+    "LOUD PARTY": 1,
+    "BURGLARY": 1,
+    "MISC PUB": 1,
+    "FOLLOW UP": 3,
+    "UNATTENDED DEATH": 1,
+    "ICF/SCF": 1
+  },
+  "cityCount": {
+    "ALA MOANA": 1,
+    "WAIKIKI": 3,
+    "KALIHI": 1,
+    "MOANALUA": 1,
+    "EWA BEACH": 1,
+    "MILILANI": 3,
+    "KAILUA": 1,
+    "AIEA": 1,
+    "LAIE": 1,
+    "HONOLULU": 1,
+    "WAIPAHU": 1,
+    "MAKIKI": 1
+  },
+  "districtCount": {
+    "District 1": 3,
+    "District 6": 3,
+    "District 5": 2,
+    "District 8": 1,
+    "District 2": 3,
+    "District 4": 2,
+    "District 3": 2
+  }
 }
