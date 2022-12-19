@@ -4,6 +4,7 @@ import random
 import re
 from datetime import datetime
 import os.path
+import json
 
 USER_AGENTS = [
     ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) '
@@ -35,15 +36,33 @@ last_updated_date = datetime.strptime(last_updated, "%B %d, %Y %H:%M:%S %p").iso
 
 output_file_name = 'archive/' + last_updated_date + '.txt'
 
-if (os.path.isfile(output_file_name)): # If we already have a file for this date, don't proceed
-    print(f"File already exists for {last_updated_date} date. Exiting.")
-    exit(0)
-
 oReport = soup.find('td', { 'id': 'oReportCell' })
 
 rows = oReport.findAll('tr', {"valign" : "top"})
 
-with open(output_file_name, 'a') as out:
+with open(output_file_name, 'w') as out:
     for row in rows[3:]:
         text = row.getText(separator=u'|')
         out.write(text + '\n')
+
+with open('info.json', 'r') as infile:
+    json_object = json.load(infile)
+    for row in rows[3:]:
+        row_data = row.getText(separator=u'|').split('|')
+        incident = row_data[1]
+        city = row_data[3]
+        district = row_data[4]
+
+        if incident not in json_object['incidentCount']:
+            json_object['incidentCount'][incident] = 0
+        json_object['incidentCount'][incident] += 1
+
+        if city not in json_object['cityCount']:
+            json_object['cityCount'][city] = 0
+        json_object['cityCount'][city] += 1
+
+        if district not in json_object['districtCount']:
+            json_object['districtCount'][district] = 0
+        json_object['districtCount'][district] += 1
+    with open("info.json", "w") as outfile:
+        json.dump(json_object, outfile, indent = 2)
