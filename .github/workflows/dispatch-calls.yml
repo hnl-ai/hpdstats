@@ -35,7 +35,7 @@ jobs:
 
           git config --local user.email "github-actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add archive/
+          git add .
           git commit -m "Active Police Dispatch Calls: ${{ env.NOW }}"
           git push
         working-directory: active-police-dispatch-calls
