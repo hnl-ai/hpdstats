@@ -1,6 +1,6 @@
 {
   "incidentCount": {
-    "SUSP CIRCUMSTANCE": 161,
+    "SUSP CIRCUMSTANCE": 162,
     "TRAFFIC STOP": 39,
     "SIMPLE ASSAULT": 123,
     "ARGUMENT FAMILY": 104,
@@ -37,7 +37,7 @@
     "THEFT": 599,
     "BURGLARY VEH TAKEN": 6,
     "TRESPASS": 53,
-    "AUTO THEFT": 114,
+    "AUTO THEFT": 116,
     "STALLED/HAZARD VEH": 36,
     "ORDER VIOLATION": 38,
     "PEDD/SOLIC NUISANCE": 2,
@@ -103,16 +103,16 @@
     "KAILUA": 329,
     "AIEA": 308,
     "LAIE": 36,
-    "HONOLULU": 597,
+    "HONOLULU": 598,
     "WAIPAHU": 290,
     "MAKIKI": 178,
     "KAPOLEI": 326,
-    "PEARL CITY": 265,
+    "PEARL CITY": 266,
     "WAIANAE": 195,
     "HAWAII KAI": 155,
     "KAPAHULU": 57,
     "WAIMANALO": 124,
-    "MAPUNAPUNA": 33,
+    "MAPUNAPUNA": 34,
     "MAKAKILO": 106,
     "AIRPORT": 77,
     "KAHALA": 54,
@@ -163,13 +163,13 @@
     "HOKULANI": 1
   },
   "districtCount": {
-    "District 1": 1301,
+    "District 1": 1302,
     "District 6": 515,
-    "District 5": 1028,
+    "District 5": 1029,
     "District 8": 1378,
     "District 2": 594,
     "District 4": 1087,
-    "District 3": 969,
+    "District 3": 970,
     "District 7": 1040,
     "\u00a0": 3
   }
