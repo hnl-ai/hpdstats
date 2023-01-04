@@ -1,6 +1,6 @@
 {
   "incidentCount": {
-    "SUSP CIRCUMSTANCE": 405,
+    "SUSP CIRCUMSTANCE": 406,
     "TRAFFIC STOP": 130,
     "SIMPLE ASSAULT": 312,
     "ARGUMENT FAMILY": 233,
@@ -55,7 +55,7 @@
     "RUNAWAY": 93,
     "FRAUD": 252,
     "FAMILY OFF/NEG": 722,
-    "COUNTERFEIT/FORGERY": 58,
+    "COUNTERFEIT/FORGERY": 59,
     "BURGLARY VEH CXL": 38,
     "TRO INITIAL": 26,
     "HAZARDOUS DRIVER": 30,
@@ -99,7 +99,7 @@
   "cityCount": {
     "ALA MOANA": 358,
     "WAIKIKI": 1481,
-    "KALIHI": 1751,
+    "KALIHI": 1752,
     "MOANALUA": 20,
     "EWA BEACH": 1069,
     "MILILANI": 567,
@@ -120,7 +120,7 @@
     "AIRPORT": 163,
     "KAHALA": 138,
     "SUNSET": 163,
-    "KANEOHE": 911,
+    "KANEOHE": 912,
     "MCCULLY": 785,
     "KAIMUKI": 567,
     "DOWNTOWN": 630,
@@ -179,10 +179,10 @@
   "districtCount": {
     "District 1": 2924,
     "District 6": 1503,
-    "District 5": 2608,
+    "District 5": 2609,
     "District 8": 3570,
     "District 2": 1549,
-    "District 4": 2716,
+    "District 4": 2717,
     "District 3": 2365,
     "District 7": 2548,
     "\u00a0": 49
