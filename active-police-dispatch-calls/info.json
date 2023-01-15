@@ -18,7 +18,7 @@
     "PROPERTY DAMAGE": 921,
     "VEH TOWED": 1559,
     "ALARM CALL": 253,
-    "TRESPASS WARN": 552,
+    "TRESPASS WARN": 553,
     "NUISANCE COMPLAINT": 830,
     "ARGUMENT": 617,
     "MISSING PERSON CXL": 19,
@@ -100,7 +100,7 @@
   },
   "cityCount": {
     "ALA MOANA": 656,
-    "WAIKIKI": 2646,
+    "WAIKIKI": 2647,
     "KALIHI": 2800,
     "MOANALUA": 35,
     "EWA BEACH": 1762,
@@ -182,7 +182,7 @@
   },
   "districtCount": {
     "District 1": 5496,
-    "District 6": 2687,
+    "District 6": 2688,
     "District 5": 4402,
     "District 8": 5961,
     "District 2": 2913,
