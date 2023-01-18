@@ -47,7 +47,7 @@
     "RECKLESS ENDANGERING": 77,
     "AGGRAVATED ASSAULT": 406,
     "MISSING PERSON": 185,
-    "WARRANT ARREST": 1090,
+    "WARRANT ARREST": 1091,
     "FOUND PROPERTY": 163,
     "MISC CRIME OFFENSE": 326,
     "DROPPED CALL": 114,
@@ -96,12 +96,12 @@
     "DELINQUENT JUVENILE": 1,
     "HOLD UP ALARM": 3,
     "SUICIDE": 6,
-    "VEH NOISE": 4,
+    "VEH NOISE": 5,
     "TRUANCY": 1
   },
   "cityCount": {
     "ALA MOANA": 719,
-    "WAIKIKI": 2948,
+    "WAIKIKI": 2950,
     "KALIHI": 3054,
     "MOANALUA": 45,
     "EWA BEACH": 1844,
@@ -183,7 +183,7 @@
   },
   "districtCount": {
     "District 1": 5985,
-    "District 6": 2996,
+    "District 6": 2998,
     "District 5": 4837,
     "District 8": 6427,
     "District 2": 3219,
