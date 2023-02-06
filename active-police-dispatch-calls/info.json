@@ -1,6 +1,6 @@
 {
   "incidentCount": {
-    "SUSP CIRCUMSTANCE": 1251,
+    "SUSP CIRCUMSTANCE": 1253,
     "TRAFFIC STOP": 406,
     "SIMPLE ASSAULT": 1114,
     "ARGUMENT FAMILY": 660,
@@ -24,7 +24,7 @@
     "MISSING PERSON CXL": 49,
     "MVC VEH TOWED": 1303,
     "MVC": 3281,
-    "ROBBERY": 439,
+    "ROBBERY": 440,
     "LIC PLATE THEFT": 205,
     "AUTO THEFT RECOVERY": 1261,
     "IDENTITY THEFT": 154,
@@ -105,8 +105,8 @@
   },
   "cityCount": {
     "ALA MOANA": 1264,
-    "WAIKIKI": 4646,
-    "KALIHI": 5185,
+    "WAIKIKI": 4647,
+    "KALIHI": 5186,
     "MOANALUA": 67,
     "EWA BEACH": 3047,
     "MILILANI": 1664,
@@ -122,7 +122,7 @@
     "HAWAII KAI": 1209,
     "KAPAHULU": 565,
     "WAIMANALO": 769,
-    "MAPUNAPUNA": 296,
+    "MAPUNAPUNA": 297,
     "MAKAKILO": 475,
     "AIRPORT": 509,
     "KAHALA": 365,
@@ -190,8 +190,8 @@
   },
   "districtCount": {
     "District 1": 9939,
-    "District 6": 4722,
-    "District 5": 8272,
+    "District 6": 4723,
+    "District 5": 8274,
     "District 8": 10266,
     "District 2": 5432,
     "District 4": 7607,
