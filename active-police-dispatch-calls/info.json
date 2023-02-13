@@ -9,7 +9,7 @@
     "TRAFFIC COMPLAINT": 745,
     "LOUD PARTY": 107,
     "BURGLARY": 1245,
-    "MISC PUB": 5890,
+    "MISC PUB": 5891,
     "FOLLOW UP": 4146,
     "UNATTENDED DEATH": 1234,
     "ICF/SCF": 619,
@@ -113,7 +113,7 @@
     "KAILUA": 2731,
     "AIEA": 2944,
     "LAIE": 345,
-    "HONOLULU": 5272,
+    "HONOLULU": 5273,
     "WAIPAHU": 2568,
     "MAKIKI": 1268,
     "KAPOLEI": 2492,
@@ -191,7 +191,7 @@
     "MANANA": 3
   },
   "districtCount": {
-    "District 1": 11281,
+    "District 1": 11282,
     "District 6": 5281,
     "District 5": 9557,
     "District 8": 11860,
