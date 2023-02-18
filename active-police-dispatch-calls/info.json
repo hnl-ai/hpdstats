@@ -1,11 +1,11 @@
 {
   "incidentCount": {
     "SUSP CIRCUMSTANCE": 1571,
-    "TRAFFIC STOP": 471,
+    "TRAFFIC STOP": 472,
     "SIMPLE ASSAULT": 1459,
     "ARGUMENT FAMILY": 787,
     "DUI": 1571,
-    "MISC SERVICE CALL": 4183,
+    "MISC SERVICE CALL": 4185,
     "TRAFFIC COMPLAINT": 833,
     "LOUD PARTY": 107,
     "BURGLARY": 1362,
@@ -108,7 +108,7 @@
   "cityCount": {
     "ALA MOANA": 1568,
     "WAIKIKI": 5728,
-    "KALIHI": 6526,
+    "KALIHI": 6527,
     "MOANALUA": 106,
     "EWA BEACH": 3785,
     "MILILANI": 1982,
@@ -131,10 +131,10 @@
     "SUNSET": 887,
     "KANEOHE": 2958,
     "MCCULLY": 2905,
-    "KAIMUKI": 2131,
+    "KAIMUKI": 2132,
     "DOWNTOWN": 2505,
     "MANOA": 1206,
-    "MAKAHA": 961,
+    "MAKAHA": 962,
     "WAIALAE": 332,
     "WAHIAWA": 1900,
     "MAILI": 672,
@@ -195,12 +195,12 @@
   "districtCount": {
     "District 1": 12529,
     "District 6": 5805,
-    "District 5": 10441,
-    "District 8": 12860,
+    "District 5": 10442,
+    "District 8": 12861,
     "District 2": 6685,
     "District 4": 9480,
     "District 3": 9563,
-    "District 7": 9488,
+    "District 7": 9489,
     "\u00a0": 79,
     "Citywide": 1
   }
