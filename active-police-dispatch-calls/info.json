@@ -32,7 +32,7 @@
     "LOST PROPERTY": 988,
     "TRAFFIC CONTROL DEVICE": 389,
     "PARKING VIOLATION": 3601,
-    "UEMV": 2548,
+    "UEMV": 2549,
     "MEDICAL ASSIST": 996,
     "THEFT": 7252,
     "BURGLARY VEH TAKEN": 118,
@@ -108,7 +108,7 @@
   },
   "cityCount": {
     "ALA MOANA": 2514,
-    "WAIKIKI": 8561,
+    "WAIKIKI": 8562,
     "KALIHI": 9700,
     "MOANALUA": 185,
     "EWA BEACH": 5814,
@@ -195,7 +195,7 @@
   },
   "districtCount": {
     "District 1": 18959,
-    "District 6": 8668,
+    "District 6": 8669,
     "District 5": 15712,
     "District 8": 19627,
     "District 2": 9843,
