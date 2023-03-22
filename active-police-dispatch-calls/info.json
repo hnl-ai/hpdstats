@@ -4,7 +4,7 @@
     "TRAFFIC STOP": 747,
     "SIMPLE ASSAULT": 2132,
     "ARGUMENT FAMILY": 1242,
-    "DUI": 2701,
+    "DUI": 2702,
     "MISC SERVICE CALL": 6067,
     "TRAFFIC COMPLAINT": 1300,
     "LOUD PARTY": 150,
@@ -31,7 +31,7 @@
     "OVERDUE RENTAL VEH": 85,
     "LOST PROPERTY": 988,
     "TRAFFIC CONTROL DEVICE": 389,
-    "PARKING VIOLATION": 3599,
+    "PARKING VIOLATION": 3600,
     "UEMV": 2548,
     "MEDICAL ASSIST": 996,
     "THEFT": 7252,
@@ -107,7 +107,7 @@
     "HOMICIDE": 52
   },
   "cityCount": {
-    "ALA MOANA": 2513,
+    "ALA MOANA": 2514,
     "WAIKIKI": 8561,
     "KALIHI": 9700,
     "MOANALUA": 185,
@@ -126,7 +126,7 @@
     "KAPAHULU": 1149,
     "WAIMANALO": 1413,
     "MAPUNAPUNA": 607,
-    "MAKAKILO": 993,
+    "MAKAKILO": 994,
     "AIRPORT": 1000,
     "KAHALA": 685,
     "SUNSET": 1142,
@@ -194,10 +194,10 @@
     "MANANA": 12
   },
   "districtCount": {
-    "District 1": 18958,
+    "District 1": 18959,
     "District 6": 8668,
     "District 5": 15712,
-    "District 8": 19626,
+    "District 8": 19627,
     "District 2": 9842,
     "District 4": 14618,
     "District 3": 14084,
