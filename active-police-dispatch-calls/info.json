@@ -8,7 +8,7 @@
     "MISC SERVICE CALL": 6509,
     "TRAFFIC COMPLAINT": 1365,
     "LOUD PARTY": 155,
-    "BURGLARY": 2106,
+    "BURGLARY": 2107,
     "MISC PUB": 10588,
     "FOLLOW UP": 7412,
     "UNATTENDED DEATH": 2333,
@@ -109,7 +109,7 @@
   "cityCount": {
     "ALA MOANA": 2728,
     "WAIKIKI": 9253,
-    "KALIHI": 10591,
+    "KALIHI": 10592,
     "MOANALUA": 204,
     "EWA BEACH": 6322,
     "MILILANI": 3366,
@@ -196,7 +196,7 @@
   "districtCount": {
     "District 1": 20647,
     "District 6": 9377,
-    "District 5": 17112,
+    "District 5": 17113,
     "District 8": 21279,
     "District 2": 10679,
     "District 4": 15695,
