@@ -8,9 +8,15 @@ def create_archives_route(app, cache):
     def get_all_archives():
         bucket = "honolulupd-arrest-logs"
         conn = boto3.client('s3')
+
+        # https://stackoverflow.com/a/59816089/6482196
+        paginator = conn.get_paginator('list_objects_v2')
+        pages = paginator.paginate(Bucket=bucket)
+
         keys = []
-        for key in conn.list_objects(Bucket=bucket)['Contents']:
-            keys.append(key['Key'])
+        for page in pages:
+            for obj in page['Contents']:
+                keys.append(obj['Key'])
         return keys
 
 
