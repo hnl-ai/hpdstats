@@ -148,6 +148,16 @@ function recount(records) {
             totalF += 1;
         }
 
+        // https://stackoverflow.com/a/175787/6482196
+        function isNumeric(str) {
+            if (typeof str != "string") return false // we only process strings!  
+            return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+                !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+        }
+
+        if (!isNumeric(age)) continue;
+        if (age.slice(-1) === ".") continue;
+
         if (!ageMapping[age]) {
             ageMapping[age] = 1;
         } else {
@@ -403,19 +413,19 @@ function fillOfficerData(records) {
         for (const record of records) {
             if (record.arrest_officer.includes(officer)) {
                 matchingRecords.push(record);
-    
+
                 for (const ethnicity of record.ethnicities) {
                     if (arrestedEthnicities[ethnicity]) arrestedEthnicities[ethnicity] += 1;
                     else arrestedEthnicities[ethnicity] = 1
                 }
             }
         }
-    
+
         // https://stackoverflow.com/questions/25500316/sort-a-dictionary-by-value-in-javascript
-        const ethnicities = Object.keys(arrestedEthnicities).map(function(key) {
+        const ethnicities = Object.keys(arrestedEthnicities).map(function (key) {
             return [key, arrestedEthnicities[key]];
         });
-        ethnicities.sort(function(first, second) {
+        ethnicities.sort(function (first, second) {
             return second[1] - first[1];
         });
 
@@ -446,7 +456,7 @@ function fillOfficerData(records) {
 
     $('#totalOfficers').text(colorsOfTopArrested.length);
     colorsOfTopArrested.sort();
-    
+
     for (const colorOfTopArrest of colorsOfTopArrested) {
         const icon = $(`
             <i class="circular user icon ${colorOfTopArrest}"></i>
