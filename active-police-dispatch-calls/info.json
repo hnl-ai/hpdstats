@@ -1,6 +1,6 @@
 {
   "incidentCount": {
-    "SUSP CIRCUMSTANCE": 3191,
+    "SUSP CIRCUMSTANCE": 3192,
     "TRAFFIC STOP": 950,
     "SIMPLE ASSAULT": 2879,
     "ARGUMENT FAMILY": 1699,
@@ -109,7 +109,7 @@
   "cityCount": {
     "ALA MOANA": 3274,
     "WAIKIKI": 11677,
-    "KALIHI": 13242,
+    "KALIHI": 13243,
     "MOANALUA": 298,
     "EWA BEACH": 7835,
     "MILILANI": 4205,
@@ -196,7 +196,7 @@
   "districtCount": {
     "District 1": 25388,
     "District 6": 11834,
-    "District 5": 21547,
+    "District 5": 21548,
     "District 8": 26070,
     "District 2": 12907,
     "District 4": 19180,
