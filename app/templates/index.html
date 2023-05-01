@@ -53,7 +53,7 @@
     <br />
 
     <div class="ui raised container segment very padded">
-        <h2 class="ui header dividing">A Breakdown of Arrests by Sex</h2>
+        <h2 class="ui header dividing">Arrests by Sex</h2>
         <p>According to Hawaii's reported <a href="https://census.hawaii.gov/census_2020/data/">2020 Census
                 data</a>, there are approximately 1,455,271 people living in Hawaii.</p>
         <p>Here is a breakdown of the population of the county of Honolulu by sex. (~102 M:100 F)</p>
@@ -65,14 +65,15 @@
         <div class="ui container centered" id="sexBreakdown">
             <canvas id="sexChart"></canvas>
         </div>
-        <h2 class="ui header dividing">A Breakdown of Arrests by Age</h2>
+        <h2 class="ui header dividing">Arrests by Age</h2>
         <p>This scatter plot shows the arrested age range for the given timeframe.</p>
         <div class="ui container" id="ageBreakdown">
             <canvas id="ageChart"></canvas>
         </div>
-        <div class="ui grid centered">
-            <div class="five wide column">
-                <div class="ui statistic">
+
+        <div class="ui three column centered grid">
+            <div class="ui four wide center aligned column">
+                <div class="ui small statistic">
                     <div id="ageMean" class="value">
                         ...
                     </div>
@@ -81,8 +82,8 @@
                     </div>
                 </div>
             </div>
-            <div class="five wide column">
-                <div class="ui statistic">
+            <div class="four wide center aligned column">
+                <div class="ui small statistic">
                     <div id="ageMedian" class="value">
                         ...
                     </div>
@@ -91,8 +92,8 @@
                     </div>
                 </div>
             </div>
-            <div class="five wide column">
-                <div class="ui statistic">
+            <div class="four wide center aligned column">
+                <div class="ui small statistic">
                     <div id="ageMode" class="value">
                         ...
                     </div>
@@ -103,7 +104,7 @@
             </div>
         </div>
 
-        <h2 class="ui header dividing">A Breakdown of Arrests by Ethnicity</h2>
+        <h2 class="ui header dividing">Arrests by Ethnicity</h2>
         <p>Here is a breakdown of the arrests by ethnicity:</p>
         <div class="ui container" id="ethnicityBreakdown">
             <canvas id="ethnicityChart"></canvas>
@@ -135,7 +136,7 @@
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script type="text/javascript" src="https://unpkg.com/js-datepicker"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/js-datepicker@5.18.2/dist/datepicker.min.js"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
 {% endblock %}

@@ -155,8 +155,10 @@ function recount(records) {
                 !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
         }
 
-        if (!isNumeric(age)) continue;
-        if (age.slice(-1) === ".") continue;
+        // Ignore the following as they are probably OCR errors
+        if (!isNumeric(age)) continue; // Ignore ages that are not numbers
+        if (age.slice(-1) === ".") continue; // Ignore ages that end with a period
+        if (parseInt(age) < 18) continue; // Ignore ages under 18
 
         if (!ageMapping[age]) {
             ageMapping[age] = 1;
@@ -183,10 +185,49 @@ function recount(records) {
     }
 }
 
+const sexChartOptions = {
+    responsive: true,
+    plugins: {
+        legend: {
+            position: 'top',
+        },
+        title: {
+            display: true,
+        }
+    }
+};
+
+const ageChartOptions = {
+    responsive: true,
+    scales: {
+        x: {
+            type: 'linear',
+            min: 18,
+            suggestedMin: 18,
+            // https://www.cnbc.com/2023/02/21/longevity-expert-3-reasons-the-worlds-oldest-person-lived-to-122.html
+            max: 122,
+            suggestedMax: 122,
+        }
+    }
+};
+
+const ethnicityChartOptions = {
+    responsive: true,
+    plugins: {
+        legend: {
+            position: 'top',
+        },
+        title: {
+            display: true,
+        }
+    }
+};
+
 let sexChart = new Chart(
     document.getElementById('sexChart'), {
     type: 'pie',
-    data: []
+    data: [],
+    options: sexChartOptions,
 }
 );
 
@@ -194,35 +235,31 @@ let ageChart = new Chart(
     document.getElementById('ageChart'), {
     type: 'scatter',
     data: [],
-    options: {
-        scales: {
-            x: {
-                type: 'linear',
-                position: 'bottom'
-            }
-        }
-    }
+    options: ageChartOptions,
 }
 );
 
 let ethnicityChart = new Chart(
     document.getElementById('ethnicityChart'), {
     type: 'polarArea',
-    data: []
+    data: [],
+    options: ethnicityChartOptions,
 }
 );
 
 let censusEthnicityChart = new Chart(
     document.getElementById('censusEthnicityChart'), {
     type: 'polarArea',
-    data: []
+    data: [],
+    options: ethnicityChartOptions,
 }
 );
 
 let censusSexChart = new Chart(
     document.getElementById('censusSexChart'), {
     type: 'pie',
-    data: []
+    data: [],
+    options: sexChartOptions,
 }
 );
 
@@ -242,7 +279,8 @@ function initializeCharts() {
     sexChart = new Chart(
         document.getElementById('sexChart'), {
         type: 'pie',
-        data: []
+        data: [],
+        options: sexChartOptions,
     }
     );
 
@@ -250,35 +288,31 @@ function initializeCharts() {
         document.getElementById('ageChart'), {
         type: 'scatter',
         data: [],
-        options: {
-            scales: {
-                x: {
-                    type: 'linear',
-                    position: 'bottom'
-                }
-            }
-        }
+        options: ageChartOptions,
     }
     );
 
     ethnicityChart = new Chart(
         document.getElementById('ethnicityChart'), {
         type: 'polarArea',
-        data: []
+        data: [],
+        options: ethnicityChartOptions,
     }
     );
 
     censusSexChart = new Chart(
         document.getElementById('censusSexChart'), {
         type: 'pie',
-        data: []
+        data: [],
+        options: sexChartOptions,
     }
     );
 
     censusEthnicityChart = new Chart(
         document.getElementById('censusEthnicityChart'), {
         type: 'polarArea',
-        data: []
+        data: [],
+        options: ethnicityChartOptions,
     }
     );
 }
