@@ -47,10 +47,29 @@
     </div>
     <div class="ui main menu borderless">
         <div class="ui text container sticky">
-            <div class="header item"><a href="/">👮📊</a></div>
+            {% if request.path == '/' %}
+            <a href="/" class="item active">Home</a>
+            {% else %}
+            <a href="/" class="item">Home</a>
+            {% endif %}
+
+            {% if request.path == '/table' %}
+            <a href="/table" class="item active">Table</a>
+            {% else %}
             <a href="/table" class="item">Table</a>
+            {% endif %}
+
+            {% if request.path == '/map' %}
+            <a href="/map" class="item active">Map</a>
+            {% else %}
             <a href="/map" class="item">Map</a>
+            {% endif %}
+
+            {% if request.path == '/archive' %}
+            <a href="/archive" class="item active">Archive</a>
+            {% else %}
             <a href="/archive" class="item">Archive</a>
+            {% endif %}
         </div>
     </div>
     {% endblock %}
