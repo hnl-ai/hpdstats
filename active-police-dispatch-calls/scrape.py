@@ -44,6 +44,12 @@ oReport = soup.find('td', { 'id': 'oReportCell' })
 
 rows = oReport.findAll('tr', {"valign" : "top"})
 
+with open('current.txt', 'w') as out:
+    out.write(last_updated_date + '\n')
+    for row in rows[3:]:
+        text = row.getText(separator=u'|')
+        out.write(text + '\n')
+
 with open(output_file_name, 'w') as out:
     for row in rows[3:]:
         text = row.getText(separator=u'|')
