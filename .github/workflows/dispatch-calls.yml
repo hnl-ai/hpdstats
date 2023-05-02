@@ -16,7 +16,6 @@ jobs:
           cache: 'pip'
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
         working-directory: active-police-dispatch-calls
       - name: Get current date
