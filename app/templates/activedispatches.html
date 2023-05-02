@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}HPD Arrest Statistics - Active Dispatches{% endblock %}
+
+{% block content %}
+
+<h1 class="ui header">Active Dispatches</h1>
+
+<div class="ui grid container">
+    <div class="eight wide column left aligned">
+        <p>Last Updated: <span id="activeDispatchesDateTime"></span></p>
+    </div>
+    <div class="eight wide column right aligned">
+        <a href="https://www.honolulupd.org/active-police-dispatch-calls/">Source</a>
+    </div>
+</div>
+
+<br>
+
+<div class="ui container">
+    <table class="ui sortable single line very basic compact small table">
+        <thead> 
+            <tr>
+                <th>Time</th>
+                <th>Type</th>
+                <th>Street</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody id="activeDispatchesTableBody">
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="https://semantic-ui.com/javascript/library/tablesort.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='activedispatches/activedispatches.js') }}"></script>
+{% endblock %}

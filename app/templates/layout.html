@@ -45,8 +45,8 @@
         <p>A project to track the statistics of the arrests of the <a href="https://www.honolulupd.org/">Honolulu Police
                 Department</a></p>
     </div>
-    <div class="ui main menu borderless">
-        <div class="ui text container sticky">
+    <div class="ui fluid five item pointing menu borderless">
+        <div class="ui text container">
             {% if request.path == '/' %}
             <a href="/" class="item active">Home</a>
             {% else %}
@@ -69,6 +69,12 @@
             <a href="/archive" class="item active">Archive</a>
             {% else %}
             <a href="/archive" class="item">Archive</a>
+            {% endif %}
+
+            {% if request.path == '/activedispatches' %}
+            <a href="/activedispatches" class="item active">Dispatches</a>
+            {% else %}
+            <a href="/activedispatches" class="item">Dispatches</a>
             {% endif %}
         </div>
     </div>

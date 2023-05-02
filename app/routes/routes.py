@@ -9,6 +9,11 @@ def index_route(path):
     """The index route."""
     return render_template(path)
 
+@routes.route("/activedispatches", defaults={'path': 'activedispatches.html'})
+def activedispatches_route(path):
+    """The active dispatches route."""
+    return render_template(path)
+
 @routes.route("/archive", defaults={'path': 'archive.html'})
 def archive_route(path):
     """The archive route."""
