@@ -8,7 +8,7 @@
     "MISC SERVICE CALL": 8626,
     "TRAFFIC COMPLAINT": 1734,
     "LOUD PARTY": 204,
-    "BURGLARY": 2813,
+    "BURGLARY": 2814,
     "MISC PUB": 14611,
     "FOLLOW UP": 9711,
     "UNATTENDED DEATH": 3258,
@@ -116,7 +116,7 @@
     "KAILUA": 6493,
     "AIEA": 6828,
     "LAIE": 952,
-    "HONOLULU": 13084,
+    "HONOLULU": 13085,
     "WAIPAHU": 5995,
     "MAKIKI": 2915,
     "KAPOLEI": 5509,
@@ -194,7 +194,7 @@
     "MANANA": 13
   },
   "districtCount": {
-    "District 1": 26895,
+    "District 1": 26896,
     "District 6": 12686,
     "District 5": 23251,
     "District 8": 27835,
