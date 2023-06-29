@@ -4,7 +4,7 @@
     "TRAFFIC STOP": 1448,
     "SIMPLE ASSAULT": 4436,
     "ARGUMENT FAMILY": 2591,
-    "DUI": 5334,
+    "DUI": 5338,
     "MISC SERVICE CALL": 12553,
     "TRAFFIC COMPLAINT": 2269,
     "LOUD PARTY": 268,
@@ -16,7 +16,7 @@
     "HARASSMENT": 3877,
     "THREATENING": 2975,
     "PROPERTY DAMAGE": 5867,
-    "VEH TOWED": 10754,
+    "VEH TOWED": 10755,
     "ALARM CALL": 1568,
     "TRESPASS WARN": 3391,
     "NUISANCE COMPLAINT": 6244,
@@ -109,8 +109,8 @@
     "AWOL": 7
   },
   "cityCount": {
-    "ALA MOANA": 4942,
-    "WAIKIKI": 17804,
+    "ALA MOANA": 4944,
+    "WAIKIKI": 17805,
     "KALIHI": 20295,
     "MOANALUA": 411,
     "EWA BEACH": 12067,
@@ -118,7 +118,7 @@
     "KAILUA": 9033,
     "AIEA": 9530,
     "LAIE": 1424,
-    "HONOLULU": 18272,
+    "HONOLULU": 18274,
     "WAIPAHU": 8771,
     "MAKIKI": 3977,
     "KAPOLEI": 7764,
@@ -198,8 +198,8 @@
     "WHEELER AFB": 2
   },
   "districtCount": {
-    "District 1": 37694,
-    "District 6": 18107,
+    "District 1": 37698,
+    "District 6": 18108,
     "District 5": 33333,
     "District 8": 39936,
     "District 2": 20109,
