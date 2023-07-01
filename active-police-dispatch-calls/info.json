@@ -31,7 +31,7 @@
     "OVERDUE RENTAL VEH": 135,
     "LOST PROPERTY": 2160,
     "TRAFFIC CONTROL DEVICE": 724,
-    "PARKING VIOLATION": 7972,
+    "PARKING VIOLATION": 7973,
     "UEMV": 4708,
     "MEDICAL ASSIST": 2144,
     "THEFT": 14240,
@@ -111,7 +111,7 @@
   "cityCount": {
     "ALA MOANA": 5027,
     "WAIKIKI": 18139,
-    "KALIHI": 20478,
+    "KALIHI": 20479,
     "MOANALUA": 413,
     "EWA BEACH": 12288,
     "MILILANI": 6700,
@@ -200,7 +200,7 @@
   "districtCount": {
     "District 1": 38143,
     "District 6": 18449,
-    "District 5": 33709,
+    "District 5": 33710,
     "District 8": 40519,
     "District 2": 20291,
     "District 4": 30263,
