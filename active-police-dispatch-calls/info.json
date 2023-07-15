@@ -32,9 +32,9 @@
     "LOST PROPERTY": 2388,
     "TRAFFIC CONTROL DEVICE": 741,
     "PARKING VIOLATION": 8550,
-    "UEMV": 4952,
+    "UEMV": 4953,
     "MEDICAL ASSIST": 2304,
-    "THEFT": 15162,
+    "THEFT": 15163,
     "BURGLARY VEH TAKEN": 256,
     "TRESPASS": 2496,
     "AUTO THEFT": 5607,
@@ -109,7 +109,7 @@
     "AWOL": 7
   },
   "cityCount": {
-    "ALA MOANA": 5349,
+    "ALA MOANA": 5350,
     "WAIKIKI": 19597,
     "KALIHI": 22138,
     "MOANALUA": 445,
@@ -133,7 +133,7 @@
     "KAHALA": 1585,
     "SUNSET": 2449,
     "KANEOHE": 10215,
-    "MCCULLY": 9272,
+    "MCCULLY": 9273,
     "KAIMUKI": 6532,
     "DOWNTOWN": 7589,
     "MANOA": 3649,
@@ -198,14 +198,14 @@
     "WHEELER AFB": 2
   },
   "districtCount": {
-    "District 1": 40660,
+    "District 1": 40661,
     "District 6": 19947,
     "District 5": 36401,
     "District 8": 43398,
     "District 2": 21612,
     "District 4": 32598,
     "District 3": 31258,
-    "District 7": 29656,
+    "District 7": 29657,
     "\u00a0": 281,
     "Citywide": 42,
     "LE": 2
