@@ -2,7 +2,7 @@
   "incidentCount": {
     "SUSP CIRCUMSTANCE": 6205,
     "TRAFFIC STOP": 1727,
-    "SIMPLE ASSAULT": 5434,
+    "SIMPLE ASSAULT": 5435,
     "ARGUMENT FAMILY": 3274,
     "DUI": 6473,
     "MISC SERVICE CALL": 16015,
@@ -15,7 +15,7 @@
     "ICF/SCF": 2881,
     "HARASSMENT": 4957,
     "THREATENING": 3671,
-    "PROPERTY DAMAGE": 7209,
+    "PROPERTY DAMAGE": 7210,
     "VEH TOWED": 13720,
     "ALARM CALL": 1964,
     "TRESPASS WARN": 4070,
@@ -111,7 +111,7 @@
   "cityCount": {
     "ALA MOANA": 6202,
     "WAIKIKI": 22505,
-    "KALIHI": 25353,
+    "KALIHI": 25355,
     "MOANALUA": 487,
     "EWA BEACH": 14739,
     "MILILANI": 7932,
@@ -200,7 +200,7 @@
   "districtCount": {
     "District 1": 46517,
     "District 6": 22890,
-    "District 5": 41848,
+    "District 5": 41850,
     "District 8": 49487,
     "District 2": 24680,
     "District 4": 37703,
