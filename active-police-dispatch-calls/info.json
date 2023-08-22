@@ -47,7 +47,7 @@
     "RECKLESS ENDANGERING": 269,
     "AGGRAVATED ASSAULT": 3454,
     "MISSING PERSON": 1389,
-    "WARRANT ARREST": 9259,
+    "WARRANT ARREST": 9260,
     "FOUND PROPERTY": 1113,
     "MISC CRIME OFFENSE": 3054,
     "DROPPED CALL": 856,
@@ -118,7 +118,7 @@
     "KAILUA": 11970,
     "AIEA": 12300,
     "LAIE": 1963,
-    "HONOLULU": 22880,
+    "HONOLULU": 22881,
     "WAIPAHU": 11258,
     "MAKIKI": 4843,
     "KAPOLEI": 9680,
@@ -199,7 +199,7 @@
     "WAIPIO PT": 1
   },
   "districtCount": {
-    "District 1": 47417,
+    "District 1": 47418,
     "District 6": 23489,
     "District 5": 42887,
     "District 8": 50622,
