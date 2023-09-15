@@ -3,12 +3,12 @@
     "SUSP CIRCUMSTANCE": 6884,
     "TRAFFIC STOP": 1947,
     "SIMPLE ASSAULT": 6102,
-    "ARGUMENT FAMILY": 3721,
+    "ARGUMENT FAMILY": 3722,
     "DUI": 7254,
     "MISC SERVICE CALL": 18078,
     "TRAFFIC COMPLAINT": 3062,
     "LOUD PARTY": 352,
-    "BURGLARY": 5388,
+    "BURGLARY": 5389,
     "MISC PUB": 29016,
     "FOLLOW UP": 19555,
     "UNATTENDED DEATH": 7394,
@@ -109,7 +109,7 @@
     "AWOL": 7
   },
   "cityCount": {
-    "ALA MOANA": 7114,
+    "ALA MOANA": 7115,
     "WAIKIKI": 25980,
     "KALIHI": 28775,
     "MOANALUA": 573,
@@ -158,7 +158,7 @@
     "KUNIA": 504,
     "KAAAWA": 1224,
     "HALEIWA": 3327,
-    "PUNCHBOWL": 2659,
+    "PUNCHBOWL": 2660,
     "ALIAMANU": 790,
     "MALOELAP": 22,
     "SCHOFIELD": 736,
@@ -199,7 +199,7 @@
     "WAIPIO PT": 1
   },
   "districtCount": {
-    "District 1": 52229,
+    "District 1": 52231,
     "District 6": 26397,
     "District 5": 47691,
     "District 8": 55588,
