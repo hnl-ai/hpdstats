@@ -4,7 +4,7 @@
     "TRAFFIC STOP": 2004,
     "SIMPLE ASSAULT": 6388,
     "ARGUMENT FAMILY": 3898,
-    "DUI": 7374,
+    "DUI": 7376,
     "MISC SERVICE CALL": 18790,
     "TRAFFIC COMPLAINT": 3147,
     "LOUD PARTY": 356,
@@ -110,7 +110,7 @@
   },
   "cityCount": {
     "ALA MOANA": 7498,
-    "WAIKIKI": 26999,
+    "WAIKIKI": 27001,
     "KALIHI": 29823,
     "MOANALUA": 606,
     "EWA BEACH": 17071,
@@ -200,7 +200,7 @@
   },
   "districtCount": {
     "District 1": 54299,
-    "District 6": 27429,
+    "District 6": 27431,
     "District 5": 49457,
     "District 8": 57578,
     "District 2": 28975,
