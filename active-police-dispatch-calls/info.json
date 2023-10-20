@@ -1,7 +1,7 @@
 {
   "incidentCount": {
     "SUSP CIRCUMSTANCE": 7597,
-    "TRAFFIC STOP": 2141,
+    "TRAFFIC STOP": 2142,
     "SIMPLE ASSAULT": 6978,
     "ARGUMENT FAMILY": 4179,
     "DUI": 7728,
@@ -20,7 +20,7 @@
     "ALARM CALL": 2422,
     "TRESPASS WARN": 5329,
     "NUISANCE COMPLAINT": 9772,
-    "ARGUMENT": 6714,
+    "ARGUMENT": 6716,
     "MISSING PERSON CXL": 284,
     "MVC VEH TOWED": 8846,
     "MVC": 21340,
@@ -54,7 +54,7 @@
     "ATTENDED DEATH": 827,
     "RUNAWAY": 2685,
     "FRAUD": 4973,
-    "FAMILY OFF/NEG": 11956,
+    "FAMILY OFF/NEG": 11957,
     "COUNTERFEIT/FORGERY": 1077,
     "BURGLARY VEH CXL": 293,
     "TRO INITIAL": 271,
@@ -109,8 +109,8 @@
     "AWOL": 7
   },
   "cityCount": {
-    "ALA MOANA": 8066,
-    "WAIKIKI": 29108,
+    "ALA MOANA": 8067,
+    "WAIKIKI": 29109,
     "KALIHI": 32159,
     "MOANALUA": 681,
     "EWA BEACH": 18415,
@@ -133,7 +133,7 @@
     "KAHALA": 2242,
     "SUNSET": 3557,
     "KANEOHE": 15022,
-    "MCCULLY": 13383,
+    "MCCULLY": 13385,
     "KAIMUKI": 9812,
     "DOWNTOWN": 11111,
     "MANOA": 5321,
@@ -199,14 +199,14 @@
     "WAIPIO PT": 1
   },
   "districtCount": {
-    "District 1": 58586,
-    "District 6": 29559,
+    "District 1": 58587,
+    "District 6": 29560,
     "District 5": 53520,
     "District 8": 62147,
     "District 2": 31562,
     "District 4": 47976,
     "District 3": 45589,
-    "District 7": 43578,
+    "District 7": 43580,
     "\u00a0": 404,
     "Citywide": 50,
     "LE": 5
