@@ -36,7 +36,7 @@
     "MEDICAL ASSIST": 3487,
     "THEFT": 22709,
     "BURGLARY VEH TAKEN": 326,
-    "TRESPASS": 3956,
+    "TRESPASS": 3957,
     "AUTO THEFT": 8325,
     "STALLED/HAZARD VEH": 2193,
     "ORDER VIOLATION": 3595,
@@ -118,7 +118,7 @@
     "KAILUA": 15375,
     "AIEA": 15905,
     "LAIE": 2636,
-    "HONOLULU": 28794,
+    "HONOLULU": 28795,
     "WAIPAHU": 14406,
     "MAKIKI": 6043,
     "KAPOLEI": 12103,
@@ -200,7 +200,7 @@
     "PUULOA": 10
   },
   "districtCount": {
-    "District 1": 60474,
+    "District 1": 60475,
     "District 6": 30506,
     "District 5": 55269,
     "District 8": 64202,
