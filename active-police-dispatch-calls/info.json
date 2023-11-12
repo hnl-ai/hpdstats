@@ -17,7 +17,7 @@
     "THREATENING": 5140,
     "PROPERTY DAMAGE": 9746,
     "VEH TOWED": 19168,
-    "ALARM CALL": 2583,
+    "ALARM CALL": 2584,
     "TRESPASS WARN": 5720,
     "NUISANCE COMPLAINT": 10513,
     "ARGUMENT": 7317,
@@ -119,7 +119,7 @@
     "KAILUA": 16043,
     "AIEA": 16543,
     "LAIE": 2746,
-    "HONOLULU": 29790,
+    "HONOLULU": 29791,
     "WAIPAHU": 15030,
     "MAKIKI": 6237,
     "KAPOLEI": 12629,
@@ -201,7 +201,7 @@
     "PUULOA": 10
   },
   "districtCount": {
-    "District 1": 62746,
+    "District 1": 62747,
     "District 6": 31883,
     "District 5": 57563,
     "District 8": 67369,
