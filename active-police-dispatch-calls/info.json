@@ -47,7 +47,7 @@
     "RECKLESS ENDANGERING": 478,
     "AGGRAVATED ASSAULT": 6191,
     "MISSING PERSON": 2464,
-    "WARRANT ARREST": 16857,
+    "WARRANT ARREST": 16858,
     "FOUND PROPERTY": 2079,
     "MISC CRIME OFFENSE": 5131,
     "DROPPED CALL": 1548,
@@ -119,7 +119,7 @@
     "KAILUA": 21545,
     "AIEA": 22298,
     "LAIE": 3483,
-    "HONOLULU": 39537,
+    "HONOLULU": 39538,
     "WAIPAHU": 20223,
     "MAKIKI": 8451,
     "KAPOLEI": 16939,
@@ -202,7 +202,7 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 83649,
+    "District 1": 83650,
     "District 6": 43180,
     "District 5": 77378,
     "District 8": 90411,
