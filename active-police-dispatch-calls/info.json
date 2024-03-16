@@ -8,7 +8,7 @@
     "MISC SERVICE CALL": 29751,
     "TRAFFIC COMPLAINT": 4917,
     "LOUD PARTY": 574,
-    "BURGLARY": 9250,
+    "BURGLARY": 9251,
     "MISC PUB": 48651,
     "FOLLOW UP": 32391,
     "UNATTENDED DEATH": 12724,
@@ -121,7 +121,7 @@
     "LAIE": 3524,
     "HONOLULU": 40889,
     "WAIPAHU": 20789,
-    "MAKIKI": 8823,
+    "MAKIKI": 8824,
     "KAPOLEI": 17533,
     "PEARL CITY": 16758,
     "WAIANAE": 14297,
@@ -202,7 +202,7 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 86729,
+    "District 1": 86730,
     "District 6": 44688,
     "District 5": 79921,
     "District 8": 93427,
