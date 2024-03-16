@@ -2,10 +2,10 @@
   "incidentCount": {
     "SUSP CIRCUMSTANCE": 10982,
     "TRAFFIC STOP": 3080,
-    "SIMPLE ASSAULT": 10752,
+    "SIMPLE ASSAULT": 10753,
     "ARGUMENT FAMILY": 6254,
     "DUI": 10572,
-    "MISC SERVICE CALL": 29751,
+    "MISC SERVICE CALL": 29752,
     "TRAFFIC COMPLAINT": 4917,
     "LOUD PARTY": 574,
     "BURGLARY": 9251,
@@ -111,7 +111,7 @@
   },
   "cityCount": {
     "ALA MOANA": 12018,
-    "WAIKIKI": 44035,
+    "WAIKIKI": 44036,
     "KALIHI": 47706,
     "MOANALUA": 1080,
     "EWA BEACH": 28133,
@@ -119,7 +119,7 @@
     "KAILUA": 22174,
     "AIEA": 23036,
     "LAIE": 3524,
-    "HONOLULU": 40889,
+    "HONOLULU": 40890,
     "WAIPAHU": 20789,
     "MAKIKI": 8824,
     "KAPOLEI": 17533,
@@ -202,8 +202,8 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 86730,
-    "District 6": 44688,
+    "District 1": 86731,
+    "District 6": 44689,
     "District 5": 79921,
     "District 8": 93427,
     "District 2": 48145,
