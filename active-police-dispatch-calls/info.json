@@ -38,7 +38,7 @@
     "BURGLARY VEH TAKEN": 455,
     "TRESPASS": 5906,
     "AUTO THEFT": 13161,
-    "STALLED/HAZARD VEH": 3390,
+    "STALLED/HAZARD VEH": 3391,
     "ORDER VIOLATION": 5356,
     "PEDD/SOLIC NUISANCE": 47,
     "ANIMAL NOISE": 1426,
@@ -112,7 +112,7 @@
   "cityCount": {
     "ALA MOANA": 12657,
     "WAIKIKI": 46149,
-    "KALIHI": 49521,
+    "KALIHI": 49522,
     "MOANALUA": 1138,
     "EWA BEACH": 29312,
     "MILILANI": 15634,
@@ -204,7 +204,7 @@
   "districtCount": {
     "District 1": 90702,
     "District 6": 46815,
-    "District 5": 83038,
+    "District 5": 83039,
     "District 8": 97219,
     "District 2": 50093,
     "District 4": 72827,
