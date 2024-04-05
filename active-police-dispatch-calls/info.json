@@ -1,6 +1,6 @@
 {
   "incidentCount": {
-    "SUSP CIRCUMSTANCE": 11442,
+    "SUSP CIRCUMSTANCE": 11443,
     "TRAFFIC STOP": 3176,
     "SIMPLE ASSAULT": 11255,
     "ARGUMENT FAMILY": 6523,
@@ -31,8 +31,8 @@
     "OVERDUE RENTAL VEH": 287,
     "LOST PROPERTY": 5237,
     "TRAFFIC CONTROL DEVICE": 1467,
-    "PARKING VIOLATION": 20851,
-    "UEMV": 10492,
+    "PARKING VIOLATION": 20852,
+    "UEMV": 10493,
     "MEDICAL ASSIST": 5504,
     "THEFT": 33412,
     "BURGLARY VEH TAKEN": 455,
@@ -110,7 +110,7 @@
     "RESIDENCE CHECK": 1
   },
   "cityCount": {
-    "ALA MOANA": 12657,
+    "ALA MOANA": 12658,
     "WAIKIKI": 46149,
     "KALIHI": 49523,
     "MOANALUA": 1138,
@@ -120,7 +120,7 @@
     "AIEA": 23971,
     "LAIE": 3627,
     "HONOLULU": 42577,
-    "WAIPAHU": 21647,
+    "WAIPAHU": 21648,
     "MAKIKI": 9304,
     "KAPOLEI": 18204,
     "PEARL CITY": 17383,
@@ -130,7 +130,7 @@
     "WAIMANALO": 7112,
     "MAPUNAPUNA": 3667,
     "MAKAKILO": 5007,
-    "AIRPORT": 4988,
+    "AIRPORT": 4989,
     "KAHALA": 3779,
     "SUNSET": 5401,
     "KANEOHE": 23052,
@@ -202,13 +202,13 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 90709,
+    "District 1": 90710,
     "District 6": 46815,
-    "District 5": 83040,
+    "District 5": 83041,
     "District 8": 97219,
     "District 2": 50100,
     "District 4": 72828,
-    "District 3": 71724,
+    "District 3": 71725,
     "District 7": 70182,
     "\u00a0": 567,
     "Citywide": 50,
