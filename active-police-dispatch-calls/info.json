@@ -1,6 +1,6 @@
 {
   "incidentCount": {
-    "SUSP CIRCUMSTANCE": 11441,
+    "SUSP CIRCUMSTANCE": 11442,
     "TRAFFIC STOP": 3176,
     "SIMPLE ASSAULT": 11255,
     "ARGUMENT FAMILY": 6523,
@@ -22,7 +22,7 @@
     "NUISANCE COMPLAINT": 15116,
     "ARGUMENT": 10457,
     "MISSING PERSON CXL": 446,
-    "MVC VEH TOWED": 14392,
+    "MVC VEH TOWED": 14393,
     "MVC": 33795,
     "ROBBERY": 4035,
     "LIC PLATE THEFT": 1553,
@@ -115,7 +115,7 @@
     "KALIHI": 49523,
     "MOANALUA": 1138,
     "EWA BEACH": 29312,
-    "MILILANI": 15634,
+    "MILILANI": 15635,
     "KAILUA": 23115,
     "AIEA": 23971,
     "LAIE": 3627,
@@ -136,7 +136,7 @@
     "KANEOHE": 23051,
     "MCCULLY": 21493,
     "KAIMUKI": 16161,
-    "DOWNTOWN": 17070,
+    "DOWNTOWN": 17071,
     "MANOA": 8238,
     "MAKAHA": 7657,
     "WAIALAE": 2297,
@@ -202,11 +202,11 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 90705,
+    "District 1": 90706,
     "District 6": 46815,
     "District 5": 83040,
     "District 8": 97219,
-    "District 2": 50096,
+    "District 2": 50097,
     "District 4": 72827,
     "District 3": 71720,
     "District 7": 70182,
