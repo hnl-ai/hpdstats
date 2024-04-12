@@ -33,7 +33,7 @@
     "TRAFFIC CONTROL DEVICE": 1493,
     "PARKING VIOLATION": 21198,
     "UEMV": 10675,
-    "MEDICAL ASSIST": 5580,
+    "MEDICAL ASSIST": 5581,
     "THEFT": 33979,
     "BURGLARY VEH TAKEN": 462,
     "TRESPASS": 6048,
@@ -136,7 +136,7 @@
     "KANEOHE": 23429,
     "MCCULLY": 21794,
     "KAIMUKI": 16375,
-    "DOWNTOWN": 17290,
+    "DOWNTOWN": 17291,
     "MANOA": 8351,
     "MAKAHA": 7741,
     "WAIALAE": 2345,
@@ -202,7 +202,7 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 92096,
+    "District 1": 92097,
     "District 6": 47603,
     "District 5": 84257,
     "District 8": 98506,
