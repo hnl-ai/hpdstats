@@ -54,7 +54,7 @@
     "ATTENDED DEATH": 1379,
     "RUNAWAY": 4463,
     "FRAUD": 8384,
-    "FAMILY OFF/NEG": 19904,
+    "FAMILY OFF/NEG": 19905,
     "COUNTERFEIT/FORGERY": 1621,
     "BURGLARY VEH CXL": 387,
     "TRO INITIAL": 442,
@@ -112,7 +112,7 @@
   "cityCount": {
     "ALA MOANA": 13091,
     "WAIKIKI": 47850,
-    "KALIHI": 50964,
+    "KALIHI": 50965,
     "MOANALUA": 1179,
     "EWA BEACH": 30164,
     "MILILANI": 16111,
@@ -204,7 +204,7 @@
   "districtCount": {
     "District 1": 93578,
     "District 6": 48516,
-    "District 5": 85521,
+    "District 5": 85522,
     "District 8": 100180,
     "District 2": 51657,
     "District 4": 74924,
