@@ -8,6 +8,13 @@ fetch('/api/archives')
         for (const archive of archives) {
             const [yy, mm, dd] = archive.split('-').slice(0, 3);
             const date = new Date(yy, mm - 1, dd);
+            
+            // Don't render any non-date files
+            // This includes files like robots.txt
+            if (isNaN(date.getTime())) {
+                continue;
+            }
+
             const month = date.toLocaleString('default', { month: 'long' });
             const year = date.getFullYear();
             const key = `${month}_${year}`;
