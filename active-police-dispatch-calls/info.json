@@ -13,7 +13,7 @@
     "FOLLOW UP": 38215,
     "UNATTENDED DEATH": 14630,
     "ICF/SCF": 6684,
-    "HARASSMENT": 11336,
+    "HARASSMENT": 11337,
     "THREATENING": 8626,
     "PROPERTY DAMAGE": 15642,
     "VEH TOWED": 32915,
@@ -112,7 +112,7 @@
   "cityCount": {
     "ALA MOANA": 14322,
     "WAIKIKI": 53114,
-    "KALIHI": 55246,
+    "KALIHI": 55247,
     "MOANALUA": 1323,
     "EWA BEACH": 33039,
     "MILILANI": 17605,
@@ -204,7 +204,7 @@
   "districtCount": {
     "District 1": 102648,
     "District 6": 53871,
-    "District 5": 93059,
+    "District 5": 93060,
     "District 8": 109693,
     "District 2": 56746,
     "District 4": 82797,
