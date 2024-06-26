@@ -1,6 +1,6 @@
 {
   "incidentCount": {
-    "SUSP CIRCUMSTANCE": 13557,
+    "SUSP CIRCUMSTANCE": 13558,
     "TRAFFIC STOP": 3767,
     "SIMPLE ASSAULT": 13079,
     "ARGUMENT FAMILY": 7732,
@@ -19,14 +19,14 @@
     "VEH TOWED": 34602,
     "ALARM CALL": 4400,
     "TRESPASS WARN": 9440,
-    "NUISANCE COMPLAINT": 17781,
+    "NUISANCE COMPLAINT": 17782,
     "ARGUMENT": 12240,
     "MISSING PERSON CXL": 500,
     "MVC VEH TOWED": 17078,
     "MVC": 40051,
     "ROBBERY": 4777,
     "LIC PLATE THEFT": 1740,
-    "AUTO THEFT RECOVERY": 13621,
+    "AUTO THEFT RECOVERY": 13622,
     "IDENTITY THEFT": 1886,
     "OVERDUE RENTAL VEH": 337,
     "LOST PROPERTY": 6303,
@@ -110,7 +110,7 @@
     "RESIDENCE CHECK": 1
   },
   "cityCount": {
-    "ALA MOANA": 14980,
+    "ALA MOANA": 14981,
     "WAIKIKI": 55980,
     "KALIHI": 57654,
     "MOANALUA": 1394,
@@ -119,7 +119,7 @@
     "KAILUA": 27389,
     "AIEA": 27930,
     "LAIE": 4235,
-    "HONOLULU": 50390,
+    "HONOLULU": 50391,
     "WAIPAHU": 25669,
     "MAKIKI": 11159,
     "KAPOLEI": 21653,
@@ -152,7 +152,7 @@
     "KAHALUU": 3709,
     "MOANALUA V": 4584,
     "KALAELOA": 4605,
-    "NUUANU": 11134,
+    "NUUANU": 11135,
     "MOKULEIA": 3094,
     "HAUULA": 3646,
     "PUNALUU": 2203,
@@ -202,9 +202,9 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 107732,
+    "District 1": 107734,
     "District 6": 56782,
-    "District 5": 97038,
+    "District 5": 97039,
     "District 8": 114807,
     "District 2": 59452,
     "District 4": 86581,
