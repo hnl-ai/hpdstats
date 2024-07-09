@@ -47,7 +47,7 @@
     "RECKLESS ENDANGERING": 679,
     "AGGRAVATED ASSAULT": 8249,
     "MISSING PERSON": 3068,
-    "WARRANT ARREST": 23278,
+    "WARRANT ARREST": 23279,
     "FOUND PROPERTY": 2712,
     "MISC CRIME OFFENSE": 6984,
     "DROPPED CALL": 2119,
@@ -136,7 +136,7 @@
     "KANEOHE": 28494,
     "MCCULLY": 26115,
     "KAIMUKI": 19434,
-    "DOWNTOWN": 21002,
+    "DOWNTOWN": 21003,
     "MANOA": 10007,
     "MAKAHA": 8977,
     "WAIALAE": 2719,
@@ -202,7 +202,7 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 110731,
+    "District 1": 110732,
     "District 6": 58307,
     "District 5": 99336,
     "District 8": 117509,
