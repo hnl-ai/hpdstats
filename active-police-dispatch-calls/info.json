@@ -16,7 +16,7 @@
     "HARASSMENT": 13371,
     "THREATENING": 10302,
     "PROPERTY DAMAGE": 18378,
-    "VEH TOWED": 39936,
+    "VEH TOWED": 39937,
     "ALARM CALL": 4935,
     "TRESPASS WARN": 10784,
     "NUISANCE COMPLAINT": 20231,
@@ -111,7 +111,7 @@
   },
   "cityCount": {
     "ALA MOANA": 17123,
-    "WAIKIKI": 65328,
+    "WAIKIKI": 65329,
     "KALIHI": 64929,
     "MOANALUA": 1749,
     "EWA BEACH": 39140,
@@ -203,7 +203,7 @@
   },
   "districtCount": {
     "District 1": 124410,
-    "District 6": 66281,
+    "District 6": 66282,
     "District 5": 109868,
     "District 8": 131928,
     "District 2": 67222,
