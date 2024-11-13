@@ -11,7 +11,7 @@
     "BURGLARY": 13552,
     "MISC PUB": 73764,
     "FOLLOW UP": 50524,
-    "UNATTENDED DEATH": 19545,
+    "UNATTENDED DEATH": 19546,
     "ICF/SCF": 8894,
     "HARASSMENT": 14777,
     "THREATENING": 11527,
@@ -60,7 +60,7 @@
     "TRO INITIAL": 657,
     "HAZARDOUS DRIVER": 2120,
     "STALLED VEH": 682,
-    "WEAPONS": 2492,
+    "WEAPONS": 2493,
     "CUSTODIAL INTERFERENCE": 953,
     "DISORDERLY CONDUCT": 4988,
     "SUSP PERSON": 4219,
@@ -110,9 +110,9 @@
     "RESIDENCE CHECK": 1
   },
   "cityCount": {
-    "ALA MOANA": 19135,
+    "ALA MOANA": 19136,
     "WAIKIKI": 73976,
-    "KALIHI": 71749,
+    "KALIHI": 71750,
     "MOANALUA": 2004,
     "EWA BEACH": 43292,
     "MILILANI": 23707,
@@ -202,9 +202,9 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 139582,
+    "District 1": 139583,
     "District 6": 75061,
-    "District 5": 122087,
+    "District 5": 122088,
     "District 8": 147711,
     "District 2": 74443,
     "District 4": 107185,
