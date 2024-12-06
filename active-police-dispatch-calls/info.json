@@ -16,7 +16,7 @@
     "HARASSMENT": 15387,
     "THREATENING": 11926,
     "PROPERTY DAMAGE": 20834,
-    "VEH TOWED": 47016,
+    "VEH TOWED": 47017,
     "ALARM CALL": 5705,
     "TRESPASS WARN": 12446,
     "NUISANCE COMPLAINT": 23359,
@@ -136,7 +136,7 @@
     "KANEOHE": 36569,
     "MCCULLY": 33549,
     "KAIMUKI": 25926,
-    "DOWNTOWN": 27673,
+    "DOWNTOWN": 27674,
     "MANOA": 13368,
     "MAKAHA": 11492,
     "WAIALAE": 3425,
@@ -202,7 +202,7 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 144559,
+    "District 1": 144560,
     "District 6": 77876,
     "District 5": 126117,
     "District 8": 152891,
