@@ -1,9 +1,9 @@
 {
   "incidentCount": {
-    "SUSP CIRCUMSTANCE": 18106,
+    "SUSP CIRCUMSTANCE": 18107,
     "TRAFFIC STOP": 5102,
     "SIMPLE ASSAULT": 17561,
-    "ARGUMENT FAMILY": 10074,
+    "ARGUMENT FAMILY": 10075,
     "DUI": 16981,
     "MISC SERVICE CALL": 47225,
     "TRAFFIC COMPLAINT": 7920,
@@ -121,10 +121,10 @@
     "LAIE": 5125,
     "HONOLULU": 67293,
     "WAIPAHU": 33486,
-    "MAKIKI": 15342,
+    "MAKIKI": 15343,
     "KAPOLEI": 29277,
     "PEARL CITY": 26524,
-    "WAIANAE": 25897,
+    "WAIANAE": 25898,
     "HAWAII KAI": 14904,
     "KAPAHULU": 10214,
     "WAIMANALO": 10853,
@@ -202,10 +202,10 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 145122,
+    "District 1": 145123,
     "District 6": 78217,
     "District 5": 126466,
-    "District 8": 153520,
+    "District 8": 153521,
     "District 2": 77160,
     "District 4": 111072,
     "District 3": 110172,
