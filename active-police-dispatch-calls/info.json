@@ -19,7 +19,7 @@
     "VEH TOWED": 47261,
     "ALARM CALL": 5728,
     "TRESPASS WARN": 12492,
-    "NUISANCE COMPLAINT": 23448,
+    "NUISANCE COMPLAINT": 23449,
     "ARGUMENT": 16108,
     "MISSING PERSON CXL": 708,
     "MVC VEH TOWED": 22781,
@@ -136,7 +136,7 @@
     "KANEOHE": 36729,
     "MCCULLY": 33659,
     "KAIMUKI": 26015,
-    "DOWNTOWN": 27796,
+    "DOWNTOWN": 27797,
     "MANOA": 13395,
     "MAKAHA": 11531,
     "WAIALAE": 3452,
@@ -202,7 +202,7 @@
     "NAVMAG LLL": 15
   },
   "districtCount": {
-    "District 1": 145123,
+    "District 1": 145124,
     "District 6": 78217,
     "District 5": 126466,
     "District 8": 153521,
