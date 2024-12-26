@@ -6,7 +6,7 @@
     "ARGUMENT FAMILY": 10313,
     "DUI": 17309,
     "MISC SERVICE CALL": 48355,
-    "TRAFFIC COMPLAINT": 8103,
+    "TRAFFIC COMPLAINT": 8104,
     "LOUD PARTY": 939,
     "BURGLARY": 14459,
     "MISC PUB": 78181,
@@ -112,7 +112,7 @@
   "cityCount": {
     "ALA MOANA": 20238,
     "WAIKIKI": 78803,
-    "KALIHI": 75890,
+    "KALIHI": 75891,
     "MOANALUA": 2133,
     "EWA BEACH": 45887,
     "MILILANI": 25463,
@@ -204,7 +204,7 @@
   "districtCount": {
     "District 1": 148820,
     "District 6": 79960,
-    "District 5": 129465,
+    "District 5": 129466,
     "District 8": 157680,
     "District 2": 79060,
     "District 4": 113527,
