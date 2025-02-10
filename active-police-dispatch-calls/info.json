@@ -2,7 +2,7 @@
   "incidentCount": {
     "SUSP CIRCUMSTANCE": 19820,
     "TRAFFIC STOP": 5513,
-    "SIMPLE ASSAULT": 19153,
+    "SIMPLE ASSAULT": 19154,
     "ARGUMENT FAMILY": 11021,
     "DUI": 18367,
     "MISC SERVICE CALL": 51272,
@@ -143,7 +143,7 @@
     "WAHIAWA": 26807,
     "MAILI": 10514,
     "KAHUKU": 7602,
-    "AINA HAINA": 6107,
+    "AINA HAINA": 6108,
     "NANAKULI": 16377,
     "WAIPIO": 12777,
     "KAKAAKO": 4296,
@@ -210,7 +210,7 @@
     "District 2": 83749,
     "District 4": 121033,
     "District 3": 120759,
-    "District 7": 120627,
+    "District 7": 120628,
     "\u00a0": 961,
     "Citywide": 90,
     "LE": 9
