@@ -1,11 +1,11 @@
 {
   "incidentCount": {
-    "SUSP CIRCUMSTANCE": 20036,
+    "SUSP CIRCUMSTANCE": 20037,
     "TRAFFIC STOP": 5577,
     "SIMPLE ASSAULT": 19341,
     "ARGUMENT FAMILY": 11125,
     "DUI": 18607,
-    "MISC SERVICE CALL": 51795,
+    "MISC SERVICE CALL": 51796,
     "TRAFFIC COMPLAINT": 8911,
     "LOUD PARTY": 996,
     "BURGLARY": 15525,
@@ -19,7 +19,7 @@
     "VEH TOWED": 52903,
     "ALARM CALL": 6346,
     "TRESPASS WARN": 13855,
-    "NUISANCE COMPLAINT": 26002,
+    "NUISANCE COMPLAINT": 26003,
     "ARGUMENT": 17574,
     "MISSING PERSON CXL": 789,
     "MVC VEH TOWED": 25291,
@@ -111,7 +111,7 @@
   },
   "cityCount": {
     "ALA MOANA": 21923,
-    "WAIKIKI": 84813,
+    "WAIKIKI": 84814,
     "KALIHI": 81623,
     "MOANALUA": 2337,
     "EWA BEACH": 49092,
@@ -119,7 +119,7 @@
     "KAILUA": 38843,
     "AIEA": 40601,
     "LAIE": 5369,
-    "HONOLULU": 74939,
+    "HONOLULU": 74940,
     "WAIPAHU": 37262,
     "MAKIKI": 17125,
     "KAPOLEI": 32524,
@@ -184,7 +184,7 @@
     "MILLER PK": 325,
     "RADFORD T": 479,
     "FORD ISL": 126,
-    "\u00a0": 46,
+    "\u00a0": 47,
     "HALE MOKU": 488,
     "HELEMANO": 438,
     "CAMP SMITH": 18,
@@ -203,8 +203,8 @@
     "HONOLULU.": 1
   },
   "districtCount": {
-    "District 1": 161991,
-    "District 6": 86086,
+    "District 1": 161992,
+    "District 6": 86087,
     "District 5": 139516,
     "District 8": 170160,
     "District 2": 84710,
@@ -214,6 +214,6 @@
     "\u00a0": 962,
     "Citywide": 90,
     "LE": 9,
-    "Special Event 2": 5
+    "Special Event 2": 6
   }
 }
