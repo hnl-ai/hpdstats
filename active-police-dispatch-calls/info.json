@@ -1,14 +1,14 @@
 {
   "incidentCount": {
-    "SUSP CIRCUMSTANCE": 20035,
+    "SUSP CIRCUMSTANCE": 20036,
     "TRAFFIC STOP": 5577,
     "SIMPLE ASSAULT": 19341,
     "ARGUMENT FAMILY": 11125,
     "DUI": 18607,
-    "MISC SERVICE CALL": 51794,
+    "MISC SERVICE CALL": 51795,
     "TRAFFIC COMPLAINT": 8911,
     "LOUD PARTY": 996,
-    "BURGLARY": 15524,
+    "BURGLARY": 15525,
     "MISC PUB": 83654,
     "FOLLOW UP": 58241,
     "UNATTENDED DEATH": 22541,
@@ -117,7 +117,7 @@
     "EWA BEACH": 49092,
     "MILILANI": 27337,
     "KAILUA": 38843,
-    "AIEA": 40599,
+    "AIEA": 40601,
     "LAIE": 5369,
     "HONOLULU": 74939,
     "WAIPAHU": 37262,
@@ -184,7 +184,7 @@
     "MILLER PK": 325,
     "RADFORD T": 479,
     "FORD ISL": 126,
-    "\u00a0": 45,
+    "\u00a0": 46,
     "HALE MOKU": 488,
     "HELEMANO": 438,
     "CAMP SMITH": 18,
@@ -209,11 +209,11 @@
     "District 8": 170160,
     "District 2": 84710,
     "District 4": 122173,
-    "District 3": 121951,
+    "District 3": 121953,
     "District 7": 121886,
     "\u00a0": 962,
     "Citywide": 90,
     "LE": 9,
-    "Special Event 2": 4
+    "Special Event 2": 5
   }
 }
