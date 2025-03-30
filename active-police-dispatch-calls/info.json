@@ -11,7 +11,7 @@
     "BURGLARY": 16221,
     "MISC PUB": 87983,
     "FOLLOW UP": 61735,
-    "UNATTENDED DEATH": 23793,
+    "UNATTENDED DEATH": 23794,
     "ICF/SCF": 10922,
     "HARASSMENT": 18120,
     "THREATENING": 13952,
@@ -159,7 +159,7 @@
     "KUNIA": 1791,
     "KAAAWA": 3568,
     "HALEIWA": 9813,
-    "PUNCHBOWL": 9879,
+    "PUNCHBOWL": 9880,
     "ALIAMANU": 3107,
     "MALOELAP": 190,
     "SCHOFIELD": 2190,
@@ -204,7 +204,7 @@
     "PCP PENN": 2
   },
   "districtCount": {
-    "District 1": 172118,
+    "District 1": 172119,
     "District 6": 91499,
     "District 5": 147266,
     "District 8": 179189,
