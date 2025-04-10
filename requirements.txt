@@ -9,6 +9,6 @@ PyMuPDF==1.18.13
 PyPDF2==1.26.0
 pytesseract==0.3.7
 python-dotenv==0.17.1
-requests==2.25.1
+requests==2.31.0
 shapely==1.8.0
 simplejson==3.17.2
