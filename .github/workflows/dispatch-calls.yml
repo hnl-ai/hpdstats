@@ -3,33 +3,38 @@ name: Pull and Archive Active Police Dispatch Calls
 on:
   workflow_dispatch: {}
   schedule:
-    - cron:  '*/10 * * * *'
+    - cron: '*/10 * * * *'
 
 jobs:
   Pull-Active-Police-Dispatch-Calls:
+    if: ${{ secrets.RUN_DISPATCH_WORKFLOW == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
           cache: 'pip'
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
         working-directory: active-police-dispatch-calls
+
       - name: Get current date
         run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+
       - name: Run script
-        run: | 
-          python scrape.py
+        run: python scrape.py
         working-directory: active-police-dispatch-calls
+
       - name: Commit to repo
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             echo "there are changes to commit";
           else
-            exit 0;
+            echo "no changes to commit"; exit 0;
           fi
 
           git config --local user.email "github-actions@github.com"
