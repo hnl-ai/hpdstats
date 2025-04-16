@@ -7,9 +7,13 @@ on:
 
 jobs:
   Pull-Active-Police-Dispatch-Calls:
-    if: ${{ secrets.RUN_DISPATCH_WORKFLOW == 'true' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Check if dispatch workflow is enabled
+        if: ${{ secrets.RUN_DISPATCH_WORKFLOW != 'true' }}
+        run: |
+         echo "Workflow is disabled via RUN_DISPATCH_WORKFLOW secret. Exiting."
+         exit 0
       - uses: actions/checkout@v3
 
       - uses: actions/setup-python@v4
