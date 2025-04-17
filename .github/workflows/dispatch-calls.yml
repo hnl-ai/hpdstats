@@ -2,8 +2,8 @@ name: Pull and Archive Active Police Dispatch Calls
 
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: '*/10 * * * *'
+  # schedule:
+    # - cron: '*/10 * * * *'
 
 jobs:
   Pull-Active-Police-Dispatch-Calls:
