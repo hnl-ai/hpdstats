@@ -12,4 +12,4 @@ python-dotenv==0.17.1
 requests==2.25.1
 shapely==1.8.0
 simplejson==3.17.2
-fake-useragent==2.2.0
+fake-useragent==1.5.1
