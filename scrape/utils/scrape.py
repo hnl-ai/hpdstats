@@ -13,8 +13,13 @@ ua = UserAgent()
 
 def write_pdf_to_disk(data, key):
     """Writes the given pdf file to the file system."""
-    # Example Date: "2022-01-01"
-    date = key[:10]
+    # Since dates can have multiple PDFs, we need to use the date + time
+    # to create a unique filename. The key is in the format:
+    # "2022-01-01-12-00-26_Arrest_Log.pdf"
+    # We only need the date part for the filename.
+    # Example key: "2022-01-01-12-00-26_Arrest_Log.pdf"
+    # Example Date: "2022-01-01-12-00-26"
+    date = key[:19]
     output_filename = f'{constants.PDF_ROOT_DIRECTORY}/{date}.pdf'
     with open(output_filename, 'wb') as output_file:
         output_file.write(data)
